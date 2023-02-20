@@ -35,6 +35,9 @@ public class RegisterPage {
     @FindBy(id = "register-submit")
     public WebElement registerButtonRegister;
 
+    @FindBy(xpath = "//div[@style='pointer-events: none;']")
+    public WebElement registerDone;
+
 
 
 }

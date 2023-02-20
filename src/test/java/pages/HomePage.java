@@ -17,7 +17,7 @@ public class HomePage {
     @FindBy(id = "login-item")
     public WebElement signInOption;
 
-    @FindBy(xpath = "//a[@href='/account/register']S")
+    @FindBy(xpath = "//a[@href='/account/register'")
     public WebElement registerOption;
 
     @FindBy(id = "entity-menu")
