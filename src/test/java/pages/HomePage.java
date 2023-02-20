@@ -25,4 +25,12 @@ public class HomePage {
 
     @FindBy(linkText = "Room")
     public WebElement roomOption;
+
+    @FindBy(id = "admin-menu")
+    public WebElement administration;
+
+    @FindBy(xpath = "//span[.='User management']")
+    public WebElement userManagementLink;
+
+
 }
