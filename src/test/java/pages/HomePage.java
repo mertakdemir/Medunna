@@ -21,8 +21,16 @@ public class HomePage {
     public WebElement registerOption;
 
     @FindBy(id = "entity-menu")
-    public WebElement itemsdAndTitles;
+    public WebElement itemsAndTitles;
 
     @FindBy(linkText = "Room")
     public WebElement roomOption;
+
+    @FindBy(id = "admin-menu")
+    public WebElement administration;
+
+    @FindBy(xpath = "//span[.='User management']")
+    public WebElement userManagementLink;
+
+
 }

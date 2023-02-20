@@ -7,8 +7,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
 
-import java.io.File;
-
 public class Hooks {
 
     //Hooks is used to run before and after each Scenario and Scenario Outline
