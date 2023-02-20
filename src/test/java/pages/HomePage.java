@@ -17,11 +17,11 @@ public class HomePage {
     @FindBy(id = "login-item")
     public WebElement signInOption;
 
-    @FindBy(xpath = "//a[@href='/account/register']")
+    @FindBy(xpath = "//a[@href='/account/register']S")
     public WebElement registerOption;
 
     @FindBy(id = "entity-menu")
-    public WebElement itemsdAndTitles;
+    public WebElement itemsAndTitles;
 
     @FindBy(linkText = "Room")
     public WebElement roomOption;
