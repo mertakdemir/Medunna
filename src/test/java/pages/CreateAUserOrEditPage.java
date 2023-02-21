@@ -15,5 +15,8 @@ public class CreateAUserOrEditPage {
     @FindBy(id = "authorities")
     public WebElement assignRoleDropdown;
 
+    @FindBy(xpath = "//span[.='Save']")
+    public WebElement saveButtonForEditPage;
+
 
 }

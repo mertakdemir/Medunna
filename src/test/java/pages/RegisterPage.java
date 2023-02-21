@@ -11,7 +11,7 @@ public class RegisterPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "snn")
+    @FindBy(xpath = "//input[@id='ssn']")
     public WebElement snnRegister;
 
     @FindBy(id = "firstName")
