@@ -24,6 +24,13 @@ public class US_002_TC_001_UI {
     }
 
 
+
+
+    @Given("user clicks on user icon button")
+    public void user_clicks_on_user_icon_button() {
+        homePage.userIcon.click();
+    }
+
     @Given("user clicks on register option")
     public void user_clicks_on_register_option() {
         homePage.registerOption.click();
