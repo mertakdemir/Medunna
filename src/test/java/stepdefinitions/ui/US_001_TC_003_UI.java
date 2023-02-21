@@ -12,6 +12,6 @@ public class US_001_TC_003_UI {
     @Given("user enters ssn which have eight digits in ssn input")
     public void user_enters_ssn_which_have_eight_digits_in_ssn_input() {
         registerPage.snnRegister.sendKeys("12345678"+ Keys.ENTER);
-        ReusableMethods.waitFor(5);
+
     }
 }

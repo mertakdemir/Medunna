@@ -1,5 +1,5 @@
  @US_001_Test
-  Feature: US_002_TC_001
+  Feature: US_001_TC_001
 
   @US001_TC001_UI
   Scenario: Registration should be available with required fileds  SSN and Firstname and Lastname
