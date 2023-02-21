@@ -39,5 +39,19 @@ public class RegisterPage {
     public WebElement registerDone;
 
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[1]")
+    public WebElement invalidSsnField;
+
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]")
+    public WebElement invalidNameField;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]")
+    public WebElement invalidUsernameField;
+
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[5]")
+    public WebElement invalidEmailField;
+
+
 
 }
