@@ -4,7 +4,7 @@
     @US002_TC001_UI
     Scenario: TC001_medunna_registration_positive01
       Given user is on the medunna page
-      And user clicks on user icon
+      And user clicks on user icon button
       And user clicks on register option
       And user enters ssn in ssn input
       And user enters first name in first name input
