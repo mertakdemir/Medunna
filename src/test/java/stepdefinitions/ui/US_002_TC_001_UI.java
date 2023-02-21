@@ -23,10 +23,7 @@ public class US_002_TC_001_UI {
         Driver.getDriver().get(ConfigReader.getProperty("medunna_url"));
     }
 
-    @Given("user clicks on user icon")
-    public void user_clicks_on_user_icon() {
-        homePage.userIcon.click();
-    }
+
     @Given("user clicks on register option")
     public void user_clicks_on_register_option() {
         homePage.registerOption.click();
