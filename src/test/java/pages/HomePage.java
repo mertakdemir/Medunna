@@ -33,7 +33,7 @@ public class HomePage {
     public WebElement userManagementLink;
 
 
-<<<<<<< HEAD
+
 // -----------zeynep---------------
     @FindBy(xpath = "(//*[@data-icon='user'])[2]")
     public WebElement userIconName;
@@ -42,13 +42,13 @@ public class HomePage {
     public WebElement signOut;
 
 
-=======
+
     @FindBy(xpath = "//*[.='MY PAGES']")
     public WebElement myPagesButton;
 
     @FindBy(xpath = "//*[.='My Appointments']")
     public WebElement myAppointmentsButton;
->>>>>>> master
+
 
 
 }
