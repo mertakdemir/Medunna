@@ -34,4 +34,5 @@
       And user enters email without dot in password input
       And verify email is invalid
       And close the application
-      
+
+
