@@ -23,5 +23,16 @@ public class LoginPage {
     @FindBy(xpath = " //button[@type='submit']")
     public WebElement signInSubmitButton;
 
+//---------zeynep----------------
+
+    @FindBy(xpath = "//span[.='Register a new account']")
+    public WebElement registerANewAccountLink;
+
+    @FindBy(xpath = "//span[.='Cancel']")
+    public WebElement cancelButton;
+
+
+
+
 
 }
