@@ -1,11 +1,15 @@
-package stepdefinitions;
+package stepdefinitions.ui;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.*;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.JSUtils;
 import utilities.ReusableMethods;
 
 public class US_004_TC_001_UI {
@@ -16,6 +20,8 @@ public class US_004_TC_001_UI {
     LoginPage loginPage = new LoginPage();
     AdminAdministrationPage adminAdministrationPage = new AdminAdministrationPage();
     CreateAUserOrEditPage createAUserOrEditPage = new CreateAUserOrEditPage();
+    Actions actions = new Actions(Driver.getDriver());
+    Faker faker = new Faker();
 
     @Given("User goes to the {string}")
     public void user_goes_to_the(String URL) {
@@ -23,15 +29,18 @@ public class US_004_TC_001_UI {
     }
     @When("User registers to the Medunna page")
     public void user_registers_to_the_medunna_page() {
+        String registerPassword = faker.internet().password();
         homePage.userIcon.click();
         homePage.registerOption.click();
-        registerPage.snnRegister.sendKeys("134-56-7777");
-        registerPage.firstNameRegister.sendKeys("Leonardo");
-        registerPage.lastNameRegister.sendKeys("DiCaprio");
-        registerPage.usernameRegister.sendKeys("LeoCaprio");
-        registerPage.emailRegister.sendKeys("leocaprio@gmail.com");
-        registerPage.newPasswordRegister.sendKeys("LeonardoCaprio12345");
-        registerPage.confirmPasswordRegister.sendKeys("LeonardoCaprio12345");
+        registerPage.snnRegister.sendKeys(faker.idNumber().ssnValid());
+        registerPage.firstNameRegister.sendKeys(faker.name().firstName());
+        registerPage.lastNameRegister.sendKeys(faker.name().lastName());
+        registerPage.usernameRegister.sendKeys(faker.name().username());
+        registerPage.emailRegister.sendKeys(faker.internet().emailAddress());
+        registerPage.newPasswordRegister.sendKeys(registerPassword);
+        registerPage.confirmPasswordRegister.sendKeys(registerPassword);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(1);
         registerPage.registerButtonRegister.click();
     }
     @And("Admin tries to log in with the {string} and {string}")
@@ -39,8 +48,8 @@ public class US_004_TC_001_UI {
         ReusableMethods.waitFor(2);
         homePage.userIcon.click();
         homePage.signInOption.click();
-        loginPage.usernameInput.sendKeys(username);
-        loginPage.passwordInput.sendKeys(password);
+        loginPage.usernameInput.sendKeys(ConfigReader.getProperty(username));
+        loginPage.passwordInput.sendKeys(ConfigReader.getProperty(password));
         loginPage.rememberMeCheckbox.click();
         loginPage.signInSubmitButton.click();
     }
@@ -67,13 +76,20 @@ public class US_004_TC_001_UI {
     }
     @When("Admin assigns a valid {string} for the user")
     public void admin_assigns_a_valid_for_the_user(String role) {
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(2);
         Select roles = new Select(createAUserOrEditPage.assignRoleDropdown);
         roles.selectByVisibleText(role);
+        ReusableMethods.waitFor(1);
+        createAUserOrEditPage.saveButtonForEditPage.click();
     }
     @Then("verify the {string} has been assigned")
     public void verify_the_has_been_assigned(String role) {
         ReusableMethods.waitFor(2);
+        JSUtils.clickElementByJS(adminAdministrationPage.createdDateOption);
+        ReusableMethods.waitFor(5);
         Assert.assertEquals(role, adminAdministrationPage.roleOfUser.getText());
+
     }
 
     @And("close the application")
