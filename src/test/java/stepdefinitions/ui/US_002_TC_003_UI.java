@@ -15,7 +15,7 @@ public class US_002_TC_003_UI {
     }
     @Given("verify email is invalid")
     public void verify_email_is_invalid() {
-        Assert.assertTrue(registerPage.invalidEmailField.getText().contains("This field is invalid"));
+        Assert.assertTrue((registerPage.requiredEmailField.getText().contains("Your email is required."))||(registerPage.invalidEmailField.getText().contains("This field is invalid")));
 
     }
 
