@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-import static utilities.AuthenticationMedunna.generateToken;
+import static utilities.AdminAuthenticationMedunna.generateTokenForAdmin;
+
 
 public class US_002_TC_001_Api {
 
@@ -26,7 +27,7 @@ public class US_002_TC_001_Api {
                 "string",true,"string","anonymousUser","2023-02-18T12:10:08.075588Z",
                 "adminteam05","2023-02-21T16:14:31.479470Z",arrayList);
 
-        response = given().when().headers("Authorization","Bearer "+generateToken()).get(endPoint);
+        response = given().when().headers("Authorization","Bearer "+generateTokenForAdmin()).get(endPoint);
         response.prettyPrint();
 
         System.out.println(expectedData);
