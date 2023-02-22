@@ -23,4 +23,3 @@ Feature: US-013 My Appointments / Edit / Request a test only by Physician (Docto
   Then user verifies Total protein checkmark option is clickable
   Then user verifies Albumin checkmark option is clickable
   Then user verifies Hemoglobin checkmark option is clickable
-
