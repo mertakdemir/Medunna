@@ -40,6 +40,9 @@ public class RegistrationPojo {
         this.authorities = authorities;
     }
 
+    public RegistrationPojo() {
+    }
+
     public int getId() {
         return id;
     }
