@@ -45,7 +45,6 @@ public class US_002_TC_001_Api {
 
     @Then("verify email api")
     public void verifyEmailApi() {
-        String email=expectedData.getEmail().toString();
-        assertEquals(email,actualData.getEmail());
+        assertEquals(expectedData.getEmail(),actualData.getEmail());
     }
 }
