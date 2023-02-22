@@ -1,6 +1,8 @@
 package stepdefinitions.api;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
@@ -18,8 +20,10 @@ public class US_002_TC_001_Api {
     Response response;
     RegistrationPojo expectedData;
 
+    RegistrationPojo actualData;
+
     @Given("user sends GET request to the {string}")
-    public void user_sends_get_request_to_the(String endPoint)  {
+    public void user_sends_get_request_to_the(String endPoint) throws JsonProcessingException {
 
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("ROLE_ADMIN");
@@ -29,6 +33,8 @@ public class US_002_TC_001_Api {
 
         response = given().when().headers("Authorization","Bearer "+generateTokenForAdmin()).get(endPoint);
         response.prettyPrint();
+
+        actualData= new ObjectMapper().readValue(response.asString(),RegistrationPojo.class);
 
         System.out.println(expectedData);
     }
@@ -40,6 +46,6 @@ public class US_002_TC_001_Api {
     @Then("verify email api")
     public void verifyEmailApi() {
         String email=expectedData.getEmail().toString();
-        assertEquals(email,"abcddd@gmail.com");
+        assertEquals(email,actualData.getEmail());
     }
 }
