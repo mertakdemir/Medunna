@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 public class JSUtils {
-    //This method will takes two parameter: WebElement, and WebDriver
+    //This method will take two parameter: WebElement, and WebDriver
     //When you pass the element, JS will click on that element
     public static void clickElementByJS(WebElement element) {
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
@@ -90,6 +90,12 @@ public class JSUtils {
     public static void addBorderWithJS(WebElement element, String borderStyle){
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
         js.executeScript("arguments[0].style.border='"+borderStyle+"'",element);
+    }
+
+    public static String getValueInStringByJS(String idOfElement){
+        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+        String value=js.executeScript("return document.getElementById('"+idOfElement+"').value").toString();
+        return value;
     }
 
 }
