@@ -8,9 +8,9 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class AuthenticationMedunna {
+public class AdminAuthenticationMedunna {
 
-    public static String generateToken() {
+    public static String generateTokenForAdmin() {
 
         Map<String, Object> gmi = new HashMap<>();
         gmi.put("password", "Team05+");
