@@ -31,8 +31,8 @@
         And user clicks signed user icon
         And user clicks on setting option
         Then user verify  user settings info  is unvisible
-        And user update firstname
-        And user update lastname
+        And user  last updated firstname
+        And user last updated lastname
         And user clicks on save button to save update
         Then user verify  updated first and last name user icon is visible
         And close the application
