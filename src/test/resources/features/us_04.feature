@@ -22,8 +22,7 @@ Feature:US_004_TC_001
 
 
 
-    @US_004_TC_001_DB
-    Scenario:
+
 
 
 
