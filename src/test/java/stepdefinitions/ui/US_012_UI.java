@@ -189,4 +189,6 @@ public class US_012_UI {
     public void verifyStatusIs(String status) {
         assertTrue(appointmentPage.statusText.getText().equals(status));
     }
+
+
 }
