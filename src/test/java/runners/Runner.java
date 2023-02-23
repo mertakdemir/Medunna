@@ -17,8 +17,17 @@ import org.junit.runner.RunWith;
         monochrome=true,
         features = "./src/test/resources/features",
         glue = {"stepdefinitions", "hooks"},
-        dryRun = false,
-        tags = "@US_001_Test"
+
+
+        dryRun = true,
+        tags = "@US_004_TC_001_Api"
+
+
+
+
+
+
+
 
 
 
