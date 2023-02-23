@@ -56,5 +56,28 @@ public class RegisterPage {
     public WebElement requiredEmailField;
 
 
+    @FindBy(id = "strength")
+    public WebElement passwordStrength;
 
+    @FindBy(xpath = "(//*[@class='point'])[1]")
+    public  WebElement passwordStrengthLevel1;
+
+
+    @FindBy(xpath = "(//*[@class='point'])[2]")
+    public  WebElement passwordStrengthLevel2;
+
+
+    @FindBy(xpath = "(//*[@class='point'])[3]")
+    public  WebElement passwordStrengthLevel3;
+
+
+    @FindBy(xpath = "(//*[@class='point'])[4]")
+    public  WebElement passwordStrengthLevel4;
+
+
+    @FindBy(xpath = "(//*[@class='point'])[5]")
+    public  WebElement passwordStrengthLevel5;
+
+    @FindBy(xpath = "(//*[@class='invalid-feedback'])[1]")
+    public  WebElement invalidFeedbackPassword;
 }
