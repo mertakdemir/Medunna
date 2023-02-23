@@ -56,6 +56,13 @@
       Then Http Status code is 200
       Then verify email api
 
+    @US002_TC001_DB
+    Scenario: TC001_medunna_registration_email_DataBase
+      Given user connects to the database
+      And user gets the column "*" from table "jhi_user"
+      Then verify table "jhi_user" and column "email" contains data "mary@hotmail.com"
+      And close the connection
+
 
 
 

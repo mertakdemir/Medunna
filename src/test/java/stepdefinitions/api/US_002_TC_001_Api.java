@@ -27,9 +27,9 @@ public class US_002_TC_001_Api {
 
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("ROLE_ADMIN");
-        expectedData= new RegistrationPojo(1132,"adminteam05","string","akdemir","123-22-3333","abcddd@gmail.com",
+        expectedData= new RegistrationPojo(1132,"adminteam05","mary","kate","567-34-4444","mary@hotmail.com",
                 "string",true,"string","anonymousUser","2023-02-18T12:10:08.075588Z",
-                "adminteam05","2023-02-21T16:14:31.479470Z",arrayList);
+                "adminteam05","2023-02-23T00:20:58.173648Z",arrayList);
 
         response = given().when().headers("Authorization","Bearer "+generateTokenForAdmin()).get(endPoint);
         response.prettyPrint();
