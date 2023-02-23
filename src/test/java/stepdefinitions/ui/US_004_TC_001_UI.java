@@ -92,9 +92,5 @@ public class US_004_TC_001_UI {
 
     }
 
-    @And("close the application")
-    public void closeTheApplication() {
-        Driver.closeDriver();
-    }
 
 }

@@ -28,12 +28,12 @@
 
     @US001_TC003_UI
     Scenario: TC003_medunna_registration_ssn_negative02
-      Given user is on the medunna page
-      And user clicks on user icon button
-      And user clicks on register option
-      And user enters ssn which have eight digits in ssn input
-      And verify ssn is invalid
-      And close the application
+    Given user is on the medunna page
+    And user clicks on user icon button
+    And user clicks on register option
+    And user enters ssn which have eight digits in ssn input
+    And verify ssn is invalid
+    And close the application
 
 
   @US001_TC004_UI

@@ -11,7 +11,7 @@ public class PhysicianAppointmentPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//span[.='Edit']")
+    @FindBy(xpath = "//span[.='Edit'][1]")
     public WebElement editButton;
 
     @FindBy(xpath = "//span[.='Create or Edit an Appointment']")
@@ -53,12 +53,17 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath= "//div[.='This field is required.']")
     public WebElement thisFieldIsRequiredText;
 
+    @FindBy(xpath= "//option[.='PENDING']")
+    public WebElement statusPending;
+
+    @FindBy(xpath= "//option[.='CANCELLED']")
+    public WebElement statusCancelled;
+
+    @FindBy(xpath= "//option[.='UNAPPROVED']")
+    public WebElement statusUnapproved;
 
     @FindBy(id = "appointment-heading")
     public WebElement appointmentHeading;
-
-
-    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
 
 
     @FindBy(xpath = "//table//tbody//tr//td[5]")
@@ -73,6 +78,34 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath = "//table//tbody//tr//td[4]")
     public WebElement statusText;
 
+//------------------------------------------
+    @FindBy(xpath = "//a[@href='/physician_test/3616']")
+    public WebElement requestATestButton;
+
+
+    @FindBy(id = "1754")
+    public WebElement glucoseCheckmark;
+
+    @FindBy(xpath = "//input[@id='1755']")
+    public WebElement ureaCheckmark;
+
+    @FindBy(xpath = "//input[@id='1756']")
+    public WebElement creatinineCheckmark;
+
+    @FindBy(xpath = "//input[@id='1757']")
+    public WebElement sodiumCheckmark;
+
+    @FindBy(xpath = "//input[@id='1758']")
+    public WebElement potassiumCheckmark;
+
+    @FindBy(xpath = "//input[@id='1759']")
+    public WebElement totalProteinCheckmark;
+
+    @FindBy(xpath = "//input[@id='1760']")
+    public WebElement albuminCheckmark;
+
+    @FindBy(xpath = "//input[@id='1761']")
+    public WebElement hemoglobinCheckmark;
 
 
 
