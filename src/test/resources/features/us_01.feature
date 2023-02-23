@@ -51,4 +51,10 @@
     And verify ssn is invalid
     And close the application
 
+    @US001_TC001_API
+    Scenario: TC001_medunna_registration_post_API
+      Given user sends post request to the "https://medunna.com/api/register/"
+      Then Http status code is 200
+      Then verify all data
+
 
