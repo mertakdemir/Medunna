@@ -18,7 +18,8 @@ public class US_007_TC_001_UI {
     }
     @When("user clicks on  sign in option")
     public void user_clicks_on_sign_in_option() {
-    homePage.signInOption.click();
+
+        homePage.signInOption.click();
     }
     @When("user enters username")
     public void user_enters_username() {
@@ -52,7 +53,7 @@ public class US_007_TC_001_UI {
     }
     @Then("user update lastname")
     public void user_update_lastname() {
-    userInfoPage.lastnameInput.sendKeys("01");
+    userInfoPage.lastnameInput.sendKeys("ss");
     }
     @Then("user clicks on save button to save update")
     public void user_clicks_on_save_button_to_save_update() {

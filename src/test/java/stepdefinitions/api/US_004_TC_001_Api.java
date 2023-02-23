@@ -6,7 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import utilities.ConfigReader;
-import utilities.JsonUtils;
+
 
 import java.util.ArrayList;
 
