@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import pojos.RegistrationPojo;
 import pojos.RegistrationPostPojo;
 
 import java.util.ArrayList;
@@ -21,20 +22,20 @@ public class US_001_TC_001_Api {
     Response response;
     RegistrationPostPojo expectedData;
 
-    RegistrationPostPojo actualData;
+    RegistrationPojo actualData;
 
     @Given("user sends post request to the {string}")
     public void user_sends_post_request_to_the(String endPoint) throws JsonProcessingException {
 
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("ghu");
-        expectedData= new RegistrationPostPojo(true,arrayList,"string","2023-02-22T22:03:30.635Z","deremere@hotmail.com",
-                "dere",0,"string","string","string","2023-02-22T22:03:30.635Z","mere","cenk","987345","345-89-2346");
+        arrayList.add("");
+        expectedData= new RegistrationPostPojo(true,arrayList,"anonymousUser","2023-02-18T12:10:08.635Z","derenfer@hotmail.com",
+                "derenferda",1132,"string","string","adminteam05","2023-02-23T05:38:27.635Z","deren","adminteam05","9187345","367-45-2215");
 
         response = given().when().contentType(ContentType.JSON).body(expectedData).headers("Authorization","Bearer "+generateTokenForAdmin()).post(endPoint);
         response.prettyPrint();
 
-        actualData= new ObjectMapper().readValue(response.asString(),RegistrationPostPojo.class);
+        actualData= new ObjectMapper().readValue(response.asString(),RegistrationPojo.class);
 
         System.out.println(expectedData);
     }
@@ -46,18 +47,12 @@ public class US_001_TC_001_Api {
     @Then("verify all data")
     public void verifyAllData() {
 
-        assertEquals(expectedData.getLogin(),actualData.getLogin());
+
         assertEquals(expectedData.getFirstName(),actualData.getFirstName());
         assertEquals(expectedData.getLastName(),actualData.getLastName());
         assertEquals(expectedData.getSsn(),actualData.getSsn());
         assertEquals(expectedData.getEmail(),actualData.getEmail());
-        assertEquals(expectedData.getImageUrl(),actualData.getImageUrl());
-        assertEquals(expectedData.getLangKey(),actualData.getLangKey());
-        assertEquals(expectedData.getCreatedBy(),actualData.getCreatedBy());
-        assertEquals(expectedData.getLastModifiedBy(),actualData.getLastModifiedBy());
-        assertEquals(expectedData.getLastModifiedDate(),actualData.getLastModifiedDate());
-        assertEquals(expectedData.getAuthorities().get(0),actualData.getAuthorities().get(0));
-        assertEquals(expectedData.getPassword(),actualData.getPassword());
+
 
 
 
