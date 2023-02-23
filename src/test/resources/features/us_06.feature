@@ -59,9 +59,11 @@
 
       @US_006_TC_001_Api
       Scenario: User should be able to send a Post Request
-        Given Send the Post Request to the Appointment Post Request URL "https://medunna.com/api/appointments/request"
+        Given Set the necessary path params to create an Appointment
+        And Set the expected data with valid credentials "string", "2023-02-22T20:29:50.827Z", "mertttdtt@gmail.com", "mert", "male", "sefa", "668-534-4131", "1231", "677-43-3654", "2023-02-22"
+        And Send the Post Request and get the response
         Then Verify the Status Code is 201
-        Then Verify that Appointment Post Request's actual data is matching with expected data
+        Then Verify actual data's are matching with expected data's
 
 
 
