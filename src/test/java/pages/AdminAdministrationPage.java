@@ -28,6 +28,35 @@ public class AdminAdministrationPage {
     @FindBy(xpath = "//table//tr[4]//td[7]//span")
     public WebElement roleOfUser;
 
+    @FindBy(xpath = "//span[.='Administration']")
+    public WebElement administrationIcon;
+
+    @FindBy(xpath = "//*[.='Create a new user']")
+    public WebElement createNewUser;
+
+    //Create or edit a user
+
+    @FindBy(id = "login")
+    public WebElement loginUserName;
+
+    @FindBy(id = "firstName")
+    public WebElement firstName;
+
+    @FindBy(id = "lastName")
+    public WebElement lastName;
+
+    @FindBy(id = "email")
+    public WebElement email;
+
+    @FindBy(id = "ssn")
+    public WebElement ssn;
+
+    @FindBy(xpath = "//*[.='ROLE_PATIENT']")
+    public WebElement rolePatient;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement saveButton;
+
 
 
 
