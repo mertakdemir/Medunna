@@ -9,7 +9,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import pojos.RegistrationPojo;
-import pojos.RegistrationPostPojo;
+
 
 import java.util.ArrayList;
 
