@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import pojos.RegistrationPojo;
 import pojos.RegistrationPostPojo;
 
@@ -17,10 +18,11 @@ import static org.junit.Assert.assertEquals;
 import static utilities.AdminAuthenticationMedunna.generateTokenForAdmin;
 
 
-public class US_001_TC_001_Api {
+public class US_001_TC_001_Api
+{
 
     Response response;
-    RegistrationPostPojo expectedData;
+    RegistrationPojo expectedData;
 
     RegistrationPojo actualData;
 
@@ -28,14 +30,13 @@ public class US_001_TC_001_Api {
     public void user_sends_post_request_to_the(String endPoint) throws JsonProcessingException {
 
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("");
-        expectedData= new RegistrationPostPojo(true,arrayList,"anonymousUser","2023-02-18T12:10:08.635Z","derenfer@hotmail.com",
-                "derenferda",1132,"string","string","adminteam05","2023-02-23T05:38:27.635Z","deren","adminteam05","9187345","367-45-2215");
+        arrayList.add("ROLE_ADMIN");
+        expectedData= new RegistrationPojo(1132,"adminteam05","mary","kate","567-34-4444","mary@hotmail.com",
+                "string",true,"string","anonymousUser","2023-02-18T12:10:08.075588Z",
+                "adminteam05","2023-02-23T00:20:58.173648Z",arrayList);
 
         response = given().when().contentType(ContentType.JSON).body(expectedData).headers("Authorization","Bearer "+generateTokenForAdmin()).post(endPoint);
         response.prettyPrint();
-
-        actualData= new ObjectMapper().readValue(response.asString(),RegistrationPojo.class);
 
         System.out.println(expectedData);
     }
@@ -45,7 +46,20 @@ public class US_001_TC_001_Api {
     }
 
     @Then("verify all data")
-    public void verifyAllData() {
+    public void verifyAllData() throws JsonProcessingException {
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("ROLE_ADMIN");
+        expectedData= new RegistrationPojo(1132,"adminteam05","mary","kate","567-34-4444","mary@hotmail.com",
+                "string",true,"string","anonymousUser","2023-02-18T12:10:08.075588Z",
+                "adminteam05","2023-02-23T00:20:58.173648Z",arrayList);
+
+        response = given().when().headers("Authorization","Bearer "+generateTokenForAdmin()).get("https://medunna.com/api/account/");
+        response.prettyPrint();
+
+        actualData= new ObjectMapper().readValue(response.asString(),RegistrationPojo.class);
+
+        System.out.println(expectedData);
 
 
         assertEquals(expectedData.getFirstName(),actualData.getFirstName());
@@ -57,4 +71,5 @@ public class US_001_TC_001_Api {
 
 
     }
+
 }

@@ -21,6 +21,7 @@ public class RegistrationPostPojo {
     private String password;
     private String ssn;
 
+
     public RegistrationPostPojo() {
     }
 
