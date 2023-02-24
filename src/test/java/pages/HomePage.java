@@ -50,7 +50,7 @@ public class HomePage {
 
 
 
-<<<<<<< HEAD
+
 //----------Mert-----------------
 
     @FindBy(id = "firstName")
@@ -82,10 +82,10 @@ public class HomePage {
 
     @FindBy(xpath = "//*[.='MY PAGES(PATIENT)']")
     public WebElement myPagesButtonPatient;
-=======
 
 
->>>>>>> 59fa40c903d2e5a558b8d60b6e278cefb03a3247
+
+
 
 
 
