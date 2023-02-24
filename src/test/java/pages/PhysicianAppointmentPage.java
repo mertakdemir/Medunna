@@ -16,6 +16,7 @@ public class PhysicianAppointmentPage {
 
     @FindBy(xpath = "//span[.='Edit'][1]")
     public WebElement editButton;
+
     @FindBy(xpath = "//span[.='Create or Edit an Appointment']")
     public WebElement createOrEditAnAppointmentText;
 
@@ -55,12 +56,20 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath= "//div[.='This field is required.']")
     public WebElement thisFieldIsRequiredText;
 
+    @FindBy(xpath= "//option[.='COMPLETED']")
+    public WebElement statusCompleted;
+
+    @FindBy(xpath= "//option[.='PENDING']")
+    public WebElement statusPending;
+
+    @FindBy(xpath= "//option[.='CANCELLED']")
+    public WebElement statusCancelled;
+
+    @FindBy(xpath= "//option[.='UNAPPROVED']")
+    public WebElement statusUnapproved;
 
     @FindBy(id = "appointment-heading")
     public WebElement appointmentHeading;
-
-
-    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
 
 
     @FindBy(xpath = "//table//tbody//tr//td[5]")
@@ -75,6 +84,8 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath = "//table//tbody//tr//td[4]")
     public WebElement statusText;
 
+
+//------------------------------------------
     @FindBy(xpath = "//a[@href='/physician_test/3616']")
     public WebElement requestATestButton;
 
@@ -138,5 +149,6 @@ public class PhysicianAppointmentPage {
 
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement inpatientRequestFailureMessage;
+
 
 }
