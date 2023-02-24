@@ -11,6 +11,7 @@ public class PhysicianAppointmentPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+
     @FindBy(xpath = "//span[.='Edit'][1]")
     public WebElement editButton;
 
@@ -53,6 +54,9 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath= "//div[.='This field is required.']")
     public WebElement thisFieldIsRequiredText;
 
+    @FindBy(xpath= "//option[.='COMPLETED']")
+    public WebElement statusCompleted;
+
     @FindBy(xpath= "//option[.='PENDING']")
     public WebElement statusPending;
 
@@ -78,10 +82,10 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath = "//table//tbody//tr//td[4]")
     public WebElement statusText;
 
+
 //------------------------------------------
     @FindBy(xpath = "//a[@href='/physician_test/3616']")
     public WebElement requestATestButton;
-
 
     @FindBy(id = "1754")
     public WebElement glucoseCheckmark;
@@ -106,6 +110,7 @@ public class PhysicianAppointmentPage {
 
     @FindBy(xpath = "//input[@id='1761']")
     public WebElement hemoglobinCheckmark;
+
 
 
 

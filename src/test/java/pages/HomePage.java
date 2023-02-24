@@ -42,12 +42,16 @@ public class HomePage {
     public WebElement signOut;
 
 
-
     @FindBy(xpath = "//*[.='MY PAGES']")
     public WebElement myPagesButton;
 
     @FindBy(xpath = "//*[.='My Appointments']")
     public WebElement myAppointmentsButton;
+
+
+
+
+
 
 
 

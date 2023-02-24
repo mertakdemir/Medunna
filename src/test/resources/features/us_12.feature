@@ -102,9 +102,19 @@ Feature: US_012 My Appointments Edit portal by Physician(Doctor)
 
   @US012_TC09
   Scenario: TC_007 Status can be only selected as PENDING, COMPLETED or CANCELLED by Doctor
+    And user clicks on "UNAPPROVED" button
     And user verifies "UNAPPROVED" is not selectable.
+    And user clicks on "PENDING" button
     And user verifies "PENDING" is selectable.
+    And user clicks on "CANCELLED" button
     And user verifies "CANCELLED" is selectable.
+    And user clicks on "COMPLETED" button
+    And user verifies "COMPLETED" is selectable.
+
+
+
+  @US012_TC10
+  Scenario: TC_007 Status can be only selected as PENDING, COMPLETED or CANCELLED by Doctor
     And User selects status as "COMPLETED"
     And user fills in Anamnesis field with "Anamnesistext"
     And user fills in Treatments field with "Treatmentstext"
@@ -114,6 +124,4 @@ Feature: US_012 My Appointments Edit portal by Physician(Doctor)
     And user clicks on save button
     Then user verifies status is "COMPLETED"
     Then user closes the page
-
-
 

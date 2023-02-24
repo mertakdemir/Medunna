@@ -3,14 +3,15 @@ package stepdefinitions.ui;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.*;
 import utilities.Driver;
 import utilities.JSUtils;
 import utilities.ReusableMethods;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class US_012_TC_01_09_UI {
 
@@ -69,6 +70,7 @@ public class US_012_TC_01_09_UI {
 
     @Then("user clicks on Edit button")
     public void user_clicks_on_edit_button() {
+
         physicianAppointmentPage.editButton.click();
     }
 
@@ -236,6 +238,22 @@ public class US_012_TC_01_09_UI {
     @And("user does not fill Anamnesis field.")
     public void userDoesNotFillAnamnesisField() {
         physicianAppointmentPage.appointmentAnamnesis.clear();
+    }
+
+    @And("user clicks on {string} button")
+    public void userClicksOnButton(String status) {
+
+        Select select = new Select(physicianAppointmentPage.appointmentStatus);
+        if(status.equals(status)) {
+            physicianAppointmentPage.statusCompleted.click();
+        } if(status.equals(status)) {
+            physicianAppointmentPage.statusCancelled.click();
+        }if(status.equals(status)) {
+            physicianAppointmentPage.statusPending.click();
+        }if(status.equals(status)) {
+            physicianAppointmentPage.statusPending.click();
+        }
+
     }
 
 
