@@ -7,6 +7,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pojos.AppointmentPostRequestPojo;
+import pojos.PostAppointmentPojo;
 
 import static io.restassured.RestAssured.given;
 import static utilities.UserAuthenticationMedunna.generateTokenForUser;
@@ -14,7 +15,7 @@ import static utilities.UserAuthenticationMedunna.generateTokenForUser;
 public class US_006_TC_001_Api {
 
 
-    AppointmentPostRequestPojo expectedData = new AppointmentPostRequestPojo();
+    PostAppointmentPojo requestBody =new PostAppointmentPojo();
     AppointmentPostRequestPojo actualData;
     RequestSpecification spec;
     Response response;
@@ -25,7 +26,9 @@ public class US_006_TC_001_Api {
         spec.pathParams("first", "api", "second", "appointments", "third", "request");
     }
 
+    /*
     @And("Set the expected data with valid credentials {string}, {string}, {string}, {string}, {string},{string}, {string}, {string}, {string}, {string}")
+
     public void setTheExpectedDataWithValidCredentials(String firstName, String lastName, String userSSN, String userEmail, String phoneNumber, String startDate, String string, String birthDate, String gender, String sNumber) {
         expectedData.setFirstName(firstName);
         expectedData.setLastName(lastName);
@@ -38,6 +41,8 @@ public class US_006_TC_001_Api {
         expectedData.setGender(gender);
         expectedData.setSnumber(sNumber);
     }
+    /*
+     */
 
 
     /*@Given("Set the expected data with valid credentials {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
@@ -62,7 +67,7 @@ public class US_006_TC_001_Api {
 
     @Given("Send the Post Request and get the response")
     public void send_the_post_request_and_get_the_response() {
-        response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{first}/{second}/{third}");
+        response = given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}/{second}/{third}");
         response.prettyPrint();
     }
     @Then("Verify the Status Code is {int}")
@@ -73,7 +78,6 @@ public class US_006_TC_001_Api {
     public void verify_actual_data_s_are_matching_with_expected_data_s() {
 
     }
-
 
 }
 

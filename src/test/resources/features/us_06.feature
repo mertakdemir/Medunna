@@ -80,7 +80,7 @@
     @US_006_TC_001_Api
       Scenario: User should be able to send a Post Request
         Given Set the necessary path params to create an Appointment
-        And Set the expected data with valid credentials "mert", "akdemir", "345-66-7125", "mertakdemirr@gmail.com", "663-534-4131","2024-02-21T00:00:00Z", "string", "2023-02-21T16:34:31.108Z", "male", "string"
+        And sets the expected data with valid "Patitent", "Johan", "439-58-9637", "patientajohn@gmail.com", "444-424-4444", "2024-02-21T00:00:00Z", "string", "2023-02-21T16:34:31.108Z", "female", "string"
         And Send the Post Request and get the response
         Then Verify the Status Code is 201
         Then Verify actual data's are matching with expected data's
