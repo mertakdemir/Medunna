@@ -62,6 +62,9 @@ public class HomePage {
     @FindBy(id = "lastName")
     public WebElement lastNameInputForAppointment;
 
+    @FindBy(xpath = "//*[.='Your LastName is required.']")
+    public WebElement lastNameWarningMessage;
+
     @FindBy(xpath = "//input[@id='ssn']")
     public WebElement ssnInputForAppointment;
 
@@ -71,8 +74,17 @@ public class HomePage {
     @FindBy(id = "email")
     public WebElement emailInputForAppointment;
 
+    @FindBy(xpath = "//*[.='Your email is required.']")
+    public WebElement emailWarningMessage;
+
     @FindBy(id = "phone")
     public WebElement phoneNumberInputForAppointment;
+
+    @FindBy(xpath = "//*[.='Phone number is required.']")
+    public WebElement phoneNumberWarningMessage;
+
+    @FindBy(xpath = "//*[.='Phone number is invalid']")
+    public WebElement phoneNumberInvalidMessage;
 
     @FindBy(id = "appoDate")
     public WebElement dateInputForAppointment;
