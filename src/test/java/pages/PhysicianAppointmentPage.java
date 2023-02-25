@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class PhysicianAppointmentPage {
 
     public PhysicianAppointmentPage() {
@@ -112,6 +114,41 @@ public class PhysicianAppointmentPage {
     public WebElement hemoglobinCheckmark;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
+
+    @FindBy(xpath = "(//span[.='Edit'])[7]")
+    public WebElement editAppoToSeeTestResultsButton;
+
+    @FindBy(linkText = "Show Test Results")
+    public WebElement showTestResultsButton;
+
+    @FindBy(xpath = "(//span[.='View Results'])[1]")
+    public WebElement viewResultsButton;
+
+    @FindBy(xpath = "//th")
+    public List<WebElement> testResultHeadingList;
+
+    @FindBy(xpath = "//button[text()='Request Inpatient']")
+    public WebElement requestInpatientButton;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement inpatientRequestSuccessMessage;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement inpatientRequestFailureMessage;
 
 
 }
