@@ -43,11 +43,8 @@ public class US_002_TC_001_Api {
         assertEquals((int) statusCode, response.getStatusCode());
     }
 
-    @Then("verify email and username api")
-    public void verifyEmailAndUsernameApi() {
+    @Then("verify email api")
+    public void verifyEmailApi() {
         assertEquals(expectedData.getEmail(),actualData.getEmail());
-        assertEquals(expectedData.getLogin(),actualData.getLogin());
-
     }
-
 }

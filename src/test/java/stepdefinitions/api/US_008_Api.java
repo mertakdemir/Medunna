@@ -15,7 +15,6 @@ import pojos.PostAppointmentPojo;
 import static io.restassured.RestAssured.*;
 import static utilities.AdminAuthenticationMedunna.generateTokenForAdmin;
 
-
 public class US_008_Api {
 
     PostAppointmentPojo requestBody =new PostAppointmentPojo();
