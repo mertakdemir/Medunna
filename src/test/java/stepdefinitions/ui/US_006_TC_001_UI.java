@@ -26,6 +26,7 @@ public class US_006_TC_001_UI {
         loginPage.passwordInput.sendKeys("leocaprioo123!");
         loginPage.rememberMeCheckbox.click();
         loginPage.signInSubmitButton.click();
+
     }
     @When("User scrolls all the way down")
     public void user_scrolls_all_the_way_down() {
