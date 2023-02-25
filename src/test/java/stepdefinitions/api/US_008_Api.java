@@ -13,7 +13,8 @@ import pojos.AppointmentResponsePojo;
 import pojos.PostAppointmentPojo;
 
 import static io.restassured.RestAssured.*;
-import static utilities.AuthenticationMedunna.generateToken;
+import static utilities.AdminAuthenticationMedunna.generateTokenForAdmin;
+
 
 public class US_008_Api {
 
@@ -70,7 +71,7 @@ public class US_008_Api {
         int appointmentId = json.getInt("id");
         spec.pathParams("first", "api", "second", "appointments", "third", appointmentId);
 
-        response2 = given().spec(spec).header("Authorization","Bearer "+generateToken()).when().get("/{first}/{second}/{third}");
+        response2 = given().spec(spec).header("Authorization","Bearer "+generateTokenForAdmin()).when().get("/{first}/{second}/{third}");
         //response2.prettyPrint();
     }
 

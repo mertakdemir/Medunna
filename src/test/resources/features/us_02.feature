@@ -51,10 +51,10 @@
       And close the application
 
     @US002_TC001_API
-    Scenario: TC001_medunna_registration_email_API
+    Scenario: TC001_medunna_registration_email_username_API
       Given user sends GET request to the "https://medunna.com/api/account/"
       Then Http Status code is 200
-      Then verify email api
+      Then verify email and username api
 
     @US002_TC001_DB
     Scenario: TC001_medunna_registration_email_DataBase
