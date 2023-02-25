@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
 
 
-        tags = "@US002_TC001_API"
+        tags = "@US_002_Test"
 
 
 
