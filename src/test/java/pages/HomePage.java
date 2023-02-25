@@ -51,6 +51,40 @@ public class HomePage {
 
 
 
+//----------Mert-----------------
+
+    @FindBy(id = "firstName")
+    public WebElement firstNameInputForAppointment;
+
+    @FindBy(xpath = "//*[.='Your FirstName is required.']")
+    public WebElement firstNameWarningMessage;
+
+    @FindBy(id = "lastName")
+    public WebElement lastNameInputForAppointment;
+
+    @FindBy(xpath = "//input[@id='ssn']")
+    public WebElement ssnInputForAppointment;
+
+    @FindBy(xpath = "//*[.='Your SSN is required.']")
+    public WebElement SSNWarningMessage;
+
+    @FindBy(id = "email")
+    public WebElement emailInputForAppointment;
+
+    @FindBy(id = "phone")
+    public WebElement phoneNumberInputForAppointment;
+
+    @FindBy(id = "appoDate")
+    public WebElement dateInputForAppointment;
+
+    @FindBy(id = "register-submit")
+    public WebElement sendAnAppointmentRequestButton;
+
+    @FindBy(xpath = "//*[.='MY PAGES(PATIENT)']")
+    public WebElement myPagesButtonPatient;
+
+
+
 
 
 
