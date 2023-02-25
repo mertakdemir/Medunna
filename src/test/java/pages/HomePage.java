@@ -34,7 +34,7 @@ public class HomePage {
 
 
 
-// -----------zeynep---------------
+    // -----------zeynep---------------
     @FindBy(xpath = "(//*[@data-icon='user'])[2]")
     public WebElement userIconName;
 

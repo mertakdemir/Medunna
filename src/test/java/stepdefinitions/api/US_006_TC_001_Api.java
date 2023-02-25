@@ -28,7 +28,6 @@ public class US_006_TC_001_Api {
 
     /*
     @And("Set the expected data with valid credentials {string}, {string}, {string}, {string}, {string},{string}, {string}, {string}, {string}, {string}")
-
     public void setTheExpectedDataWithValidCredentials(String firstName, String lastName, String userSSN, String userEmail, String phoneNumber, String startDate, String string, String birthDate, String gender, String sNumber) {
         expectedData.setFirstName(firstName);
         expectedData.setLastName(lastName);
@@ -75,4 +74,3 @@ public class US_006_TC_001_Api {
     }
 
 }
-
