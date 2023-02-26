@@ -5,19 +5,11 @@ Feature:US_005_TC_001
   Background:
     Given User goes to the "medunna_url"
 
-  @US_005_TC_001
   Scenario: Login page should be accessible only with valid credentials
     Given User clicks on the user icon
-    When User valid Username and Password "medunna_username_5" and "medunna_password_5"
-    And User clicks on the Signin Button
-    Then Verify user clicks Signin Button
-
-  @US_005_TC_002
-  Scenario: Login page should be accessible only with valid credentials and clicks remember me checkbox
-    Given User clicks on the user icon
-    When User valid Username and Password "medunna_username_5" and "medunna_password_5"
-    And User checks on the Remember me box
-    And User clicks on the Signin Button
+    When User valid Username and Password "medunna_username_3" and "medunna_password_3"
+    And User check the Remember me box
+    And User click the Signin Button
     Then Verify sigin as User
     And User should see a success message
 
@@ -33,6 +25,13 @@ Feature:US_005_TC_001
     When User clicks on the user icon
     And  User click the cancel button
     Then Verify the User come to the home page
-    And close the application
+  #  And close the application
+
+
+
+
+
+
+
 
 
