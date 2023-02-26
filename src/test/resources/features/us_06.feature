@@ -231,10 +231,25 @@ Feature: US_006
 
 
   @US_006_TC_001_Api
-  Scenario: User should be able to send a Post Request
-    Given Set the necessary path params to create an Appointment
-    And Set the expected data with valid credentials "Patiennt", "Johhn", "426-58-9637", "patientjohn@gmail.com", "424-444-4444", "2024-02-21T00:00:00Z", "string", "2023-02-21T16:34:31.108Z", "male", "string"
-    And Send the Post Request and get the response
-    Then Verify the Status Code is 201
-    Then Verify actual data's are matching with expected data's
+  Scenario: User validates the necessary request is done by Api
+    Given User adds the necessary path params to the base url
+    And User sets the expected data
+    And User sends the post request and gets the response
+    Then verify that status code is 201
+    And Do assertion according to post request
+    Given User adds the necessary path params to the base url for Get Request
+    And User sends the Get request and gets the response
+    Then Verify that status code is 200
+    And Do assertion according to Get request
 
+  @US_006_TC_001_DB
+  Scenario Outline: Database validation test
+    Given User connects to the Medunna Database to be able to read the data
+    And user gets the id column "id" from "public.appointment" table
+    Then Verify the id column contains the expected data "<data>"
+    And close the database connection
+    Examples:
+      | data |
+      | 8285 |
+      | 8284 |
+      | 8282 |
