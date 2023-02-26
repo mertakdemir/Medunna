@@ -7,12 +7,13 @@ import org.openqa.selenium.support.ui.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.function.Function;
 
 public class ReusableMethods {
@@ -171,4 +172,50 @@ public class ReusableMethods {
         select.selectByIndex(optionIndex);
         return select.getFirstSelectedOption();
     }
+
+    /**
+     * This method creates a past or future date. H.Sozeri.
+     * @param format
+     * @param atMostYear
+     * @param choice
+     * @return
+     */
+    public static String setPastOrFutureDate (String format, int atMostYear, String choice) {
+            int day = (int) (Math.random() * 366 + 1);
+            int month = (int) (Math.random() * 13 + 1);
+            int year = (int) (Math.random() * atMostYear + 1);
+            LocalDate date = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+            choice = choice.toUpperCase(Locale.ROOT);
+            String dateF;
+            switch (choice) {
+                case "FEATURE":
+                    date = date.plusYears(year).plusMonths(month).plusDays(day);
+                    dateF = formatter.format(date);
+                    return dateF;
+                case "PAST":
+                    date = date.minusYears(year).minusMonths(month).minusDays(day);
+                    dateF = formatter.format(date);
+                    return dateF;
+                default:
+                    dateF = formatter.format(date);
+                    return dateF;
+            }
+        }
+
+    /**
+     *This method checks if a date is in expected date format. H.Sozeri.
+     */
+     public static boolean isValid(String dateFormat, String dateStr) {
+     DateFormat sdf = new SimpleDateFormat(dateFormat);
+     sdf.setLenient(false);
+     try {
+        sdf.parse(dateStr);
+     } catch (ParseException e) {
+        return false;
+     }
+     return true;
+    }
+
+
 }

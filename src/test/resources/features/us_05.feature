@@ -7,7 +7,7 @@ Feature:US_005_TC_001
 
   Scenario: Login page should be accessible only with valid credentials
     Given User clicks on the user icon
-    When User valid Username and Password "medunna_username_5" and "medunna_password_5"
+    When User valid Username and Password "medunna_username_3" and "medunna_password_3"
     And User check the Remember me box
     And User click the Signin Button
     Then Verify sigin as User
@@ -25,5 +25,5 @@ Feature:US_005_TC_001
     When User clicks on the user icon
     And  User click the cancel button
     Then Verify the User come to the home page
-    And close the application
+  #  And close the application
 

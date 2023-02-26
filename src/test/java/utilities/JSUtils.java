@@ -92,4 +92,10 @@ public class JSUtils {
         js.executeScript("arguments[0].style.border='"+borderStyle+"'",element);
     }
 
+    public static String getValueInStringByJS(String idOfElement){
+        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+        String value=js.executeScript("return document.getElementById('"+idOfElement+"').value").toString();
+        return value;
+    }
+
 }

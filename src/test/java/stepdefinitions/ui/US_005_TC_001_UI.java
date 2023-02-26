@@ -71,18 +71,21 @@ public class US_005_TC_001_UI {
         ReusableMethods.waitFor(10);
         ReusableMethods.getScreenshot("Automatically_Username_");
 
+        Assert.assertFalse(loginPage.usernameInput.toString().isEmpty());
+        Assert.assertFalse(loginPage.passwordInput.toString().isEmpty());
+
     }
 
     @When("User click the registration link")
     public void user_click_the_registration_link() {
-    Assert.assertTrue(loginPage.registerANewAccountLink.isSelected());
+    Assert.assertTrue(loginPage.registerANewAccountLink.isDisplayed());
     loginPage.registerANewAccountLink.click();
     }
 
     @Then("Verify should be redirected to the registration page")
     public void verify_should_be_redirected_to_the_registration_page() {
     registerPage= new RegisterPage();
-    Assert.assertTrue(registerPage.snnRegister.isDisplayed());
+    Assert.assertTrue(registerPage.firstNameRegister.isDisplayed());
 
     }
 
