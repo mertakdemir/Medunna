@@ -31,6 +31,23 @@ public class US_005_TC_001_UI {
         loginPage.passwordInput.sendKeys(ConfigReader.getProperty(password));
     }
 
+    @When("User clicks on the Signin Button")
+    public void user_click_on_the_signin_button() {
+        loginPage.signInSubmitButton.click();
+    }
+    @Then("Verify user clicks Signin Button")
+    public void verify_user_clicks_signin_button() {
+        Assert.assertTrue(homePage.userIconName.isDisplayed());
+    }
+
+    //-------------@US_005_TC_002--------------------
+
+    @When("User checks on the Remember me box")
+    public void user_checks_on_the_remember_me_box() {
+        loginPage.rememberMeCheckbox.click();
+    }
+
+
     @When("User check the Remember me box")
     public void user_check_the_remember_me_box() {
         loginPage.rememberMeCheckbox.click();
