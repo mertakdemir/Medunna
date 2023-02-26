@@ -7,6 +7,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
 
+import static base_url.MedunnaBaseUrlWithoutAnnotation.setUp;
+
 public class Hooks {
 
     //Hooks is used to run before and after each Scenario and Scenario Outline
@@ -35,5 +37,10 @@ public class Hooks {
     @After("@smoke_tests")
     public void tearDownSmokeScenarios() {
         System.out.println("Run After Only Smoke Test Scenario");
+    }
+
+    @Before("@US_006_TC_001_Api")
+    public void beforeApi(){
+        setUp();
     }
 }
