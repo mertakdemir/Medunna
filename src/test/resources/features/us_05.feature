@@ -35,36 +35,4 @@ Feature:US_005_TC_001
     Then Verify the User come to the home page
     And close the application
 
-  @Given("User clicks on the user icon")
-  public void user_clicks_on_the_user_icon() {
-  homePage.userIcon.click();
-  homePage.signInOption.click();
-  ReusableMethods.waitFor(3);
-
-  }
-
-  @When("User valid Username and Password {string} and {string}")
-  public void user_valid_username_and_password_and(String username, String password) {
-  loginPage.usernameInput.sendKeys(ConfigReader.getProperty(username));
-  loginPage.passwordInput.sendKeys(ConfigReader.getProperty(password));
-  }
-
-  @When("User clicks on the Signin Button")
-  public void user_click_on_the_signin_button() {
-  loginPage.signInSubmitButton.click();
-  }
-
-
-  @Then("Verify user clicks Signin Button")
-  public void verify_user_clicks_signin_button() {
-  Assert.assertTrue(homePage.userIconName.isDisplayed());
-  }
-
-  //-------------@US_005_TC_002--------------------
-
-  @When("User checks on the Remember me box")
-  public void user_checks_on_the_remember_me_box() {
-  loginPage.rememberMeCheckbox.click();
-  }
-
 
