@@ -11,6 +11,9 @@ import utilities.ReusableMethods;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class US_005_TC_001_UI {
 
     HomePage homePage = new HomePage();
@@ -22,7 +25,6 @@ public class US_005_TC_001_UI {
         homePage.userIcon.click();
         homePage.signInOption.click();
         ReusableMethods.waitFor(3);
-
     }
 
     @When("User valid Username and Password {string} and {string}")
@@ -34,9 +36,12 @@ public class US_005_TC_001_UI {
     @When("User clicks on the Signin Button")
     public void user_click_on_the_signin_button() {
         loginPage.signInSubmitButton.click();
+        ReusableMethods.waitFor(5);
     }
-    @Then("Verify user clicks Signin Button")
-    public void verify_user_clicks_signin_button() {
+    @Then("Verify user should see a success message")
+    public void verify_user_should_see_a_success_message() throws IOException {
+        ReusableMethods.getScreenshot("No_Message_");
+
         Assert.assertTrue(homePage.userIconName.isDisplayed());
     }
 
@@ -47,53 +52,67 @@ public class US_005_TC_001_UI {
         loginPage.rememberMeCheckbox.click();
     }
 
+    //-------------@US_005_TC_003--------------------
 
-    @When("User check the Remember me box")
-    public void user_check_the_remember_me_box() {
-        loginPage.rememberMeCheckbox.click();
-    }
-
-
-   @When("User click the Signin Button")
-    public void user_click_the_signin_button() {
-        loginPage.signInSubmitButton.click();
-         }
-
-    @Then("Verify sigin as User")
-    public void verify_sigin_as_user() {
+    @Then("Verify user clicks Signin Button")
+    public void verify_user_clicks_signin_button() {
         Assert.assertTrue(homePage.userIconName.isDisplayed());
-    }
 
-    @Then("User should see a success message")
-    public void user_should_see_a_success_message() throws IOException {
-        ReusableMethods.getScreenshot("No_Message_");
     }
 
     @When("User clicks the usericon")
     public void user_clicks_the_usericon() {
     homePage.userIconName.click();
+    ReusableMethods.waitFor(3);
     }
 
 
-    @When("User sign out of the system")
-    public void user_sign_out_of_the_system() {
+    @When("User clicks Signout Button")
+    public void user_clicks_signout_button() {
     homePage.signOut.click();
+    ReusableMethods.waitFor(3);
 
     }
 
+    @When("User clicks on the signin again Button")
+    public void user_clicks_on_the_signin_again_button() {
+        loginPage.SigninAgain.click();
+    }
 
 
-    @When("The username and password should come automatically to log in to the system again.")
-    public void the_username_and_password_should_come_automatically_to_log_in_to_the_system_again() throws IOException {
-        ReusableMethods.waitFor(10);
+        @Then("Username and password should come automatically in order to log in to the system again later.")
+    public void username_and_password_should_come_automatically_in_order_to_log_in_to_the_system_again_later() throws IOException {
+        ReusableMethods.waitFor(3);
+        String againUsername = loginPage.usernameInput.getText();
+        String againPassword = loginPage.passwordInput.getText();
+        assertEquals(ConfigReader.getProperty("medunna_username_1"), againUsername);
+        assertEquals(ConfigReader.getProperty("medunna_password_1"), againPassword);
+
         ReusableMethods.getScreenshot("Automatically_Username_");
 
-        Assert.assertFalse(loginPage.usernameInput.toString().isEmpty());
-        Assert.assertFalse(loginPage.passwordInput.toString().isEmpty());
+        //Assert.assertFalse(loginPage.usernameInput.toString().isEmpty());
+        //Assert.assertFalse(loginPage.passwordInput.toString().isEmpty());
+    }
+
+    //-------------@US_005_TC_004--------------------
+
+    @When("User invalid Username and Password")
+    public void user_invalid_username_and_password() {
+        loginPage.usernameInput.sendKeys("Zeki");
+        loginPage.passwordInput.sendKeys("Muren");
+        ReusableMethods.waitFor(5);
 
     }
 
-    @When("User click the registration link")
+    @Then("Verify the user is not registered")
+    public void verify_the_user_is_not_registered() {
+        ReusableMethods.waitFor(3);
+        assertTrue(loginPage.failedSigninMessage.isDisplayed());
+
+    }
+
+
+    @When("User clicks the registration link")
     public void user_click_the_registration_link() {
     Assert.assertTrue(loginPage.registerANewAccountLink.isDisplayed());
     loginPage.registerANewAccountLink.click();
@@ -106,9 +125,12 @@ public class US_005_TC_001_UI {
 
     }
 
-    @When("User click the cancel button")
-    public void user_click_the_cancel_button() {
+//-------------@US_005_TC_005--------------------
+
+    @When("User clicks the cancel button")
+    public void user_clicks_the_cancel_button() {
     loginPage.cancelButton.click();
+    ReusableMethods.waitFor(3);
     }
 
     @Then("Verify the User come to the home page")
