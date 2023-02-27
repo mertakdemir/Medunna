@@ -80,4 +80,16 @@ public class RegisterPage {
 
     @FindBy(xpath = "(//*[@class='invalid-feedback'])[1]")
     public  WebElement invalidFeedbackPassword;
+
+
+
+
+
+
+
+
+//    ********************** US_21 ********************
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement registerSuccessMessage;
+
 }
