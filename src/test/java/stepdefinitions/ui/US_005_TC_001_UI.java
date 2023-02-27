@@ -2,11 +2,11 @@ package stepdefinitions.ui;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.remote.ScreenshotException;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.RegisterPage;
 import utilities.ConfigReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.io.IOException;
@@ -15,7 +15,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class US_005_TC_001_UI {
-
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     RegisterPage registerPage;
@@ -45,7 +44,15 @@ public class US_005_TC_001_UI {
         Assert.assertTrue(homePage.userIconName.isDisplayed());
     }
 
-    //-------------@US_005_TC_002--------------------
+
+    @Then("close the application")
+    public void close_the_application() {
+        Driver.closeDriver();
+    }
+
+
+
+        //-------------@US_005_TC_002--------------------
 
     @When("User checks on the Remember me box")
     public void user_checks_on_the_remember_me_box() {
@@ -62,15 +69,15 @@ public class US_005_TC_001_UI {
 
     @When("User clicks the usericon")
     public void user_clicks_the_usericon() {
-    homePage.userIconName.click();
-    ReusableMethods.waitFor(3);
+        homePage.userIconName.click();
+        ReusableMethods.waitFor(3);
     }
 
 
     @When("User clicks Signout Button")
     public void user_clicks_signout_button() {
-    homePage.signOut.click();
-    ReusableMethods.waitFor(3);
+        homePage.signOut.click();
+        ReusableMethods.waitFor(3);
 
     }
 
@@ -80,7 +87,7 @@ public class US_005_TC_001_UI {
     }
 
 
-        @Then("Username and password should come automatically in order to log in to the system again later.")
+    @Then("Username and password should come automatically in order to log in to the system again later.")
     public void username_and_password_should_come_automatically_in_order_to_log_in_to_the_system_again_later() throws IOException {
         ReusableMethods.waitFor(3);
         String againUsername = loginPage.usernameInput.getText();
@@ -114,14 +121,14 @@ public class US_005_TC_001_UI {
 
     @When("User clicks the registration link")
     public void user_click_the_registration_link() {
-    Assert.assertTrue(loginPage.registerANewAccountLink.isDisplayed());
-    loginPage.registerANewAccountLink.click();
+        Assert.assertTrue(loginPage.registerANewAccountLink.isDisplayed());
+        loginPage.registerANewAccountLink.click();
     }
 
     @Then("Verify should be redirected to the registration page")
     public void verify_should_be_redirected_to_the_registration_page() {
-    registerPage= new RegisterPage();
-    Assert.assertTrue(registerPage.firstNameRegister.isDisplayed());
+        registerPage= new RegisterPage();
+        Assert.assertTrue(registerPage.firstNameRegister.isDisplayed());
 
     }
 
@@ -129,15 +136,14 @@ public class US_005_TC_001_UI {
 
     @When("User clicks the cancel button")
     public void user_clicks_the_cancel_button() {
-    loginPage.cancelButton.click();
-    ReusableMethods.waitFor(3);
+        loginPage.cancelButton.click();
+        ReusableMethods.waitFor(3);
     }
 
     @Then("Verify the User come to the home page")
     public void verify_the_user_come_to_the_home_page() {
         Assert.assertTrue(homePage.userIcon.isDisplayed());
     }
-    /*
- */
+
 
 }

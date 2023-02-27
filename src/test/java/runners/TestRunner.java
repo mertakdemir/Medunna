@@ -18,7 +18,11 @@ import org.junit.runner.RunWith;
         features = "./src/test/resources/features",
         glue = {"stepdefinitions"},
         dryRun = false,
-        tags = "@google_search"
+
+
+        tags = "@US_028_Test"
+
+
 
 )
 public class TestRunner {

@@ -26,7 +26,7 @@ Feature:US_005_TC_001
 
 
   @US_005_TC_003
-    Scenario:Automatically to log in to the system again.
+  Scenario:Automatically to log in to the system again.
     Given User clicks on the user icon
     When User valid Username and Password "medunna_username_1" and "medunna_password_1"
     And User checks on the Remember me box
@@ -40,7 +40,7 @@ Feature:US_005_TC_001
 
 
   @US_005_TC_004
-    Scenario:There should be an option to navigate to registration page if not registered yet
+  Scenario:There should be an option to navigate to registration page if not registered yet
     When User clicks on the user icon
     And User invalid Username and Password
     And User checks on the Remember me box
@@ -52,7 +52,7 @@ Feature:US_005_TC_001
 
 
   @US_005_TC_005
-    Scenario: There should be an option to cancel login
+  Scenario: There should be an option to cancel login
     When User clicks on the user icon
     And  User clicks the cancel button
     Then Verify the User come to the home page
