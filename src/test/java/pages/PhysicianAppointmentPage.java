@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class PhysicianAppointmentPage {
 
     public PhysicianAppointmentPage() {
@@ -14,6 +16,7 @@ public class PhysicianAppointmentPage {
 
     @FindBy(xpath = "//span[.='Edit'][1]")
     public WebElement editButton;
+
     @FindBy(xpath = "//span[.='Create or Edit an Appointment']")
     public WebElement createOrEditAnAppointmentText;
 
@@ -53,12 +56,20 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath= "//div[.='This field is required.']")
     public WebElement thisFieldIsRequiredText;
 
+    @FindBy(xpath= "//option[.='COMPLETED']")
+    public WebElement statusCompleted;
+
+    @FindBy(xpath= "//option[.='PENDING']")
+    public WebElement statusPending;
+
+    @FindBy(xpath= "//option[.='CANCELLED']")
+    public WebElement statusCancelled;
+
+    @FindBy(xpath= "//option[.='UNAPPROVED']")
+    public WebElement statusUnapproved;
 
     @FindBy(id = "appointment-heading")
     public WebElement appointmentHeading;
-
-
-    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
 
 
     @FindBy(xpath = "//table//tbody//tr//td[5]")
@@ -73,6 +84,8 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath = "//table//tbody//tr//td[4]")
     public WebElement statusText;
 
+
+//------------------------------------------
     @FindBy(xpath = "//a[@href='/physician_test/3616']")
     public WebElement requestATestButton;
 
@@ -157,6 +170,39 @@ public class PhysicianAppointmentPage {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
+
+    @FindBy(xpath = "(//span[.='Edit'])[7]")
+    public WebElement editAppoToSeeTestResultsButton;
+
+    @FindBy(linkText = "Show Test Results")
+    public WebElement showTestResultsButton;
+
+    @FindBy(xpath = "(//span[.='View Results'])[1]")
+    public WebElement viewResultsButton;
+
+    @FindBy(xpath = "//th")
+    public List<WebElement> testResultHeadingList;
+
+    @FindBy(xpath = "//button[text()='Request Inpatient']")
+    public WebElement requestInpatientButton;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement inpatientRequestSuccessMessage;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement inpatientRequestFailureMessage;
 
 
 }
