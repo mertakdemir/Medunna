@@ -165,7 +165,7 @@
     @US_008_TC_010_DB
     Scenario Outline: US_008_TC_010_DB Validate Appointment by id column
       Given user connects to the Medunna application database to read appointment
-      And user gets the column "*" from "public.appointment" table
+      And user gets the column "id" from "public.appointment" table
       Then verify table "<table>" and column "<column>" contains expected data "<data>"
       And close the Medunna database connection
     Examples:
