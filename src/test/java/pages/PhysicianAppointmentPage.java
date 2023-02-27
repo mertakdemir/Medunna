@@ -101,6 +101,60 @@ public class PhysicianAppointmentPage {
     public WebElement hemoglobinCheckmark;
 
 
+    @FindBy(xpath = "//span[.='My Inpatients']")
+    public WebElement myInpatientButton;
+
+    @FindBy(xpath = "(//span[.='Edit'])[1]")
+    public WebElement patientEditButtonInpatient;
+
+    @FindBy(xpath = "//label[@for='in-patient-id']")
+    public WebElement inpatientId;
+
+    @FindBy(xpath = "//label[@for='in-patient-startDate']")
+    public WebElement inpatientStartDate;
+
+    @FindBy(xpath = "//label[@for='in-patient-endDate']")
+    public WebElement inpatientEndDate;
+
+    @FindBy(xpath = "//label[@for='in-patient-description']")
+    public WebElement inpatientDescription;
+
+    @FindBy(xpath = "//label[@for='in-patient-createdDate']")
+    public WebElement inpatientCreatedDate;
+
+    @FindBy(xpath = "//label[@for='in-patient-appointment']")
+    public WebElement inpatientAppointment;
+
+    @FindBy(xpath = "//label[@for='in-patient-status']")
+    public WebElement inpatientStatus;
+
+    @FindBy(xpath = "//label[@for='in-patient-room']")
+    public WebElement inpatientRoom;
+
+    @FindBy(xpath = "//label[@for='in-patient-patient']")
+    public WebElement inpatientPatient;
+
+    @FindBy(xpath = "//select[@id='in-patient-status']")
+    public WebElement inpatientDropdownStatus;
+
+
+    @FindBy(xpath = "//option[@value='UNAPPROVED']")
+    public WebElement inpatientStatusUnapproved;
+
+    @FindBy(xpath = "//select[@id='in-patient-status']")
+    public WebElement inpatientStatus2;
+
+
+    @FindBy(xpath = "//select[@name='room.id']")
+    public WebElement inpatientRoomUpdate;
+
+    @FindBy(xpath = "//option[@value='5507']")
+    public WebElement inpatientRoomTwinFull;
+
+
+//option[@value='5507']
+
+
 
 
 
