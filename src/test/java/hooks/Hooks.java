@@ -39,8 +39,12 @@ public class Hooks {
         System.out.println("Run After Only Smoke Test Scenario");
     }
 
+
+
+
     @Before("@US_006_TC_001_Api")
     public void beforeApi(){
         setUp();
     }
+
 }
