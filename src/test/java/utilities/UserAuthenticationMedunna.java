@@ -8,14 +8,14 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class AuthenticationMedunna {
+public class UserAuthenticationMedunna {
 
-    public static String generateToken() {
+    public static String generateTokenForUser() {
 
         Map<String, Object> gmi = new HashMap<>();
-        gmi.put("password", "Team05+");
+        gmi.put("password", "Tomhanks12345");
         gmi.put("rememberMe", true);
-        gmi.put("username", "AdminTeam05");
+        gmi.put("username", "TomHanks");
 
         Response response = given().contentType(ContentType.JSON).body(gmi).when().post("https://medunna.com/api/authenticate");
         response.prettyPrint();

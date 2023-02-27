@@ -5,13 +5,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class PhysicianAppointmentPage {
 
     public PhysicianAppointmentPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//span[.='Edit']")
+
+    @FindBy(xpath = "//span[.='Edit'][1]")
     public WebElement editButton;
 
     @FindBy(xpath = "//span[.='Create or Edit an Appointment']")
@@ -53,12 +56,20 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath= "//div[.='This field is required.']")
     public WebElement thisFieldIsRequiredText;
 
+    @FindBy(xpath= "//option[.='COMPLETED']")
+    public WebElement statusCompleted;
+
+    @FindBy(xpath= "//option[.='PENDING']")
+    public WebElement statusPending;
+
+    @FindBy(xpath= "//option[.='CANCELLED']")
+    public WebElement statusCancelled;
+
+    @FindBy(xpath= "//option[.='UNAPPROVED']")
+    public WebElement statusUnapproved;
 
     @FindBy(id = "appointment-heading")
     public WebElement appointmentHeading;
-
-
-    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
 
 
     @FindBy(xpath = "//table//tbody//tr//td[5]")
@@ -74,6 +85,124 @@ public class PhysicianAppointmentPage {
     public WebElement statusText;
 
 
+//------------------------------------------
+    @FindBy(xpath = "//a[@href='/physician_test/3616']")
+    public WebElement requestATestButton;
+
+    @FindBy(id = "1754")
+    public WebElement glucoseCheckmark;
+
+    @FindBy(xpath = "//input[@id='1755']")
+    public WebElement ureaCheckmark;
+
+    @FindBy(xpath = "//input[@id='1756']")
+    public WebElement creatinineCheckmark;
+
+    @FindBy(xpath = "//input[@id='1757']")
+    public WebElement sodiumCheckmark;
+
+    @FindBy(xpath = "//input[@id='1758']")
+    public WebElement potassiumCheckmark;
+
+    @FindBy(xpath = "//input[@id='1759']")
+    public WebElement totalProteinCheckmark;
+
+    @FindBy(xpath = "//input[@id='1760']")
+    public WebElement albuminCheckmark;
+
+    @FindBy(xpath = "//input[@id='1761']")
+    public WebElement hemoglobinCheckmark;
+
+
+    @FindBy(xpath = "//span[.='My Inpatients']")
+    public WebElement myInpatientButton;
+
+    @FindBy(xpath = "(//span[.='Edit'])[1]")
+    public WebElement patientEditButtonInpatient;
+
+    @FindBy(xpath = "//label[@for='in-patient-id']")
+    public WebElement inpatientId;
+
+    @FindBy(xpath = "//label[@for='in-patient-startDate']")
+    public WebElement inpatientStartDate;
+
+    @FindBy(xpath = "//label[@for='in-patient-endDate']")
+    public WebElement inpatientEndDate;
+
+    @FindBy(xpath = "//label[@for='in-patient-description']")
+    public WebElement inpatientDescription;
+
+    @FindBy(xpath = "//label[@for='in-patient-createdDate']")
+    public WebElement inpatientCreatedDate;
+
+    @FindBy(xpath = "//label[@for='in-patient-appointment']")
+    public WebElement inpatientAppointment;
+
+    @FindBy(xpath = "//label[@for='in-patient-status']")
+    public WebElement inpatientStatus;
+
+    @FindBy(xpath = "//label[@for='in-patient-room']")
+    public WebElement inpatientRoom;
+
+    @FindBy(xpath = "//label[@for='in-patient-patient']")
+    public WebElement inpatientPatient;
+
+    @FindBy(xpath = "//select[@id='in-patient-status']")
+    public WebElement inpatientDropdownStatus;
+
+
+    @FindBy(xpath = "//option[@value='UNAPPROVED']")
+    public WebElement inpatientStatusUnapproved;
+
+    @FindBy(xpath = "//select[@id='in-patient-status']")
+    public WebElement inpatientStatus2;
+
+
+    @FindBy(xpath = "//select[@name='room.id']")
+    public WebElement inpatientRoomUpdate;
+
+    @FindBy(xpath = "//option[@value='5507']")
+    public WebElement inpatientRoomTwinFull;
+
+
+//option[@value='5507']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
+
+    @FindBy(xpath = "(//span[.='Edit'])[7]")
+    public WebElement editAppoToSeeTestResultsButton;
+
+    @FindBy(linkText = "Show Test Results")
+    public WebElement showTestResultsButton;
+
+    @FindBy(xpath = "(//span[.='View Results'])[1]")
+    public WebElement viewResultsButton;
+
+    @FindBy(xpath = "//th")
+    public List<WebElement> testResultHeadingList;
+
+    @FindBy(xpath = "//button[text()='Request Inpatient']")
+    public WebElement requestInpatientButton;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement inpatientRequestSuccessMessage;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement inpatientRequestFailureMessage;
 
 
 }

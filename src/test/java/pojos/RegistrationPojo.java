@@ -2,23 +2,61 @@ package pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RegistrationPojo {
 
-    private String ssn;
+    private  int id;
+    private String login;
     private String firstName;
     private String lastName;
-    private String userName;
+    private String ssn;
     private String email;
-    private String newPassword;
-    private String confirmPassword;
+    private String imageUrl;
+    private boolean activated;
+    private String langKey;
+    private String createdBy;
+    private String createdDate;
+    private String lastModifiedBy;
+    private String lastModifiedDate;
+    private ArrayList<String> authorities;
 
-    public String getSsn() {
-        return ssn;
+    public RegistrationPojo(int id, String login, String firstName, String lastName, String ssn, String email, String imageUrl, boolean activated, String langKey, String createdBy, String createdDate, String lastModifiedBy, String lastModifiedDate, ArrayList<String> authorities) {
+        this.id = id;
+        this.login = login;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.ssn = ssn;
+        this.email = email;
+        this.imageUrl = imageUrl;
+        this.activated = activated;
+        this.langKey = langKey;
+        this.createdBy = createdBy;
+        this.createdDate = createdDate;
+        this.lastModifiedBy = lastModifiedBy;
+        this.lastModifiedDate = lastModifiedDate;
+        this.authorities = authorities;
     }
 
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    public RegistrationPojo() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getFirstName() {
@@ -37,12 +75,12 @@ public class RegistrationPojo {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getSsn() {
+        return ssn;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
     public String getEmail() {
@@ -53,32 +91,87 @@ public class RegistrationPojo {
         this.email = email;
     }
 
-    public String getNewPassword() {
-        return newPassword;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setNewPassword(String newPassword) {
-        this.newPassword = newPassword;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
+    public boolean isActivated() {
+        return activated;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void setActivated(boolean activated) {
+        this.activated = activated;
+    }
+
+    public String getLangKey() {
+        return langKey;
+    }
+
+    public void setLangKey(String langKey) {
+        this.langKey = langKey;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public String getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(String lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public ArrayList<String> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(ArrayList<String> authorities) {
+        this.authorities = authorities;
     }
 
     @Override
     public String toString() {
         return "RegistrationPojo{" +
-                "ssn='" + ssn + '\'' +
+                "id=" + id +
+                ", login='" + login + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", userName='" + userName + '\'' +
+                ", ssn='" + ssn + '\'' +
                 ", email='" + email + '\'' +
-                ", newPassword='" + newPassword + '\'' +
-                ", confirmPassword='" + confirmPassword + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", activated=" + activated +
+                ", langKey='" + langKey + '\'' +
+                ", createdBy='" + createdBy + '\'' +
+                ", createdDate='" + createdDate + '\'' +
+                ", lastModifiedBy='" + lastModifiedBy + '\'' +
+                ", lastModifiedDate='" + lastModifiedDate + '\'' +
+                ", authorities=" + authorities +
                 '}';
     }
 }
