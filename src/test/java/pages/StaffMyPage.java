@@ -17,9 +17,6 @@ public class StaffMyPage {
     @FindBy(xpath = "(//a[@role='menuitem'])[1]")
     public WebElement staffSearchPatient;
 
-    @FindBy(xpath = "(//a[@role='menuitem'])[2]")
-    public WebElement staffInPatient;
-
     @FindBy(xpath = "//input[@name='ssn']")
     public WebElement staffSearchSsn;
 

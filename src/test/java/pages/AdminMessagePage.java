@@ -15,9 +15,9 @@ public class AdminMessagePage {
     public WebElement itemsAndTitlesMessage;
 
     @FindBy(id = "jh-create-entity")
-    public WebElement createMessage;
+    public WebElement createNewMessage;
 
-    @FindBy(id = "id=c-message-name")
+    @FindBy(id = "c-message-name")
     public WebElement createMessageName;
 
     @FindBy(id = "c-message-email")
@@ -35,11 +35,8 @@ public class AdminMessagePage {
     @FindBy(xpath = "(//a[@class='btn btn-info btn-sm'])[1]")
     public WebElement viewMessage;
 
-    @FindBy(xpath = "//a[@class='btn btn-info']")
-    public WebElement backMessageList;
-
-    @FindBy(xpath = "(//a[@class='btn btn-primary btn-sm'])[1]")
-    public WebElement editMessage;
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement viewMessageAndEdit;
 
     @FindBy(xpath = "(//a[@class='btn btn-danger btn-sm'])[1]")
     public WebElement deleteMessage;

@@ -68,16 +68,17 @@ public class US_023_TC_001_UI {
     }
     @Then("staff enter results by number to results input")
     public void staff_enter_results_by_number_to_results_input() {
+        staffMyPage.staffTestResult.clear();
         staffMyPage.staffTestResult.sendKeys("70");
     }
     @Then("staff enter description to description icon")
     public void staff_enter_description_to_description_icon() {
+        staffMyPage.staffTestResult.clear();
         staffMyPage.staffTestDescription.sendKeys("important for patient");
     }
     @Then("staff clicks save button icon")
     public void staff_clicks_save_button_icon() {
         staffMyPage.staffTestResultSave.click();
-
     }
     @Then("staff clicks edit button again")
     public void staff_clicks_edit_button_again() {
@@ -99,6 +100,7 @@ public class US_023_TC_001_UI {
         Assert.assertTrue(staffMyPage.staffTestDate.isDisplayed());
         Assert.assertTrue(staffMyPage.staffTestCreatedDate.isDisplayed());
         Assert.assertTrue(staffMyPage.staffTestItem.isDisplayed());
+        Assert.assertTrue(staffMyPage.staffTestInput.isDisplayed());
     }
 
 }

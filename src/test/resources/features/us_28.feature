@@ -17,11 +17,27 @@ Feature: US_028_TC_001
     And user enters subject to create message
     And user enters message to create message
     And user clicks on save button to create or edit message
-    And user clicks back to see message list
+    And user clicks view button to see message
     And user clicks edit button for update
     And user enters new data for update
     And user clicks save button icon to update
     And user clicks delete button icon
+    Then close the application
+
+  @US028_TC001_API
+  Scenario: TC001_medunna_user_creating_and_reading_messages_using_API
+    Given user sends post request "https://medunna.com/api/c-messages/" to create message
+    Then user gets the message data to read
+
+  @US028_TC001_DB
+  Scenario: TC001_medunna_validate_messages_with_DB
+    Given user connects to the database
+    And user gets the column "*" from table "cmessage"
+    Then verify table "cmessage" and column "email" contains data "arasataman@gmailcom"
+    Then verify table "cmessage" and column "name" contains data "aras"
+    Then verify table "cmessage" and column "subject" contains data "appointment"
+    Then verify table "cmessage" and column "message" contains data "new appointment on 23/03/2023"
+    And close the connection
 
 
 
