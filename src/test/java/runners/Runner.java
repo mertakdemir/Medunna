@@ -17,6 +17,10 @@ import org.junit.runner.RunWith;
         monochrome=true,
         features = "./src/test/resources/features",
         glue = {"stepdefinitions", "hooks"},
+<<<<<<< HEAD
+        dryRun = false,
+        tags = "@"
+=======
         dryRun = true,
         tags = ""
 
@@ -25,6 +29,7 @@ import org.junit.runner.RunWith;
 
 
 
+>>>>>>> master
 
 
 
