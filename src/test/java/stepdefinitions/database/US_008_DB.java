@@ -20,7 +20,7 @@ public class US_008_DB {
     @Given("user gets the column {string} from {string} table")
     public void user_gets_the_column_from_table(String columnName, String table) {
         idsList = JdbcUtils.getColumnList(columnName, table);
-        System.out.println(idsList);
+        //System.out.println(idsList);
     }
 
     @Then("verify table {string} and column {string} contains expected data {string}")
