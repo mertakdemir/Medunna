@@ -97,6 +97,9 @@ public class HomePage {
 
 
 
+    //------------------ US_27 -----------------
+    @FindBy(xpath = "//span[.='CONTACT']")
+    public WebElement contactIcon;
 
 
 

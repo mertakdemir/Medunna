@@ -31,6 +31,17 @@ public class LoginPage {
     @FindBy(xpath = "//span[.='Cancel']")
     public WebElement cancelButton;
 
+    @FindBy(xpath = "//*[.='Failed to sign in!']")
+    public WebElement failedSigninMessage;
+
+    @FindBy(xpath = "//*[text()='SIGN IN AGAIN']")
+    public WebElement SigninAgain;
+
+
+
+
+
+
 
 
 

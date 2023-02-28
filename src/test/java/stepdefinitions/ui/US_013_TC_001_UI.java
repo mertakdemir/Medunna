@@ -2,6 +2,7 @@ package stepdefinitions.ui;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.HomePage;
 import pages.LoginPage;
@@ -63,4 +64,7 @@ public class US_013_TC_001_UI {
     public void userVerifiesHemoglobinCheckmarkOptionIsClickable() {
         Assert.assertTrue(physicianAppointmentPage.hemoglobinCheckmark.isEnabled());
     }
+
+
+
 }
