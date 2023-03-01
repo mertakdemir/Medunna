@@ -15,4 +15,8 @@ public class PatientMyAppointmentsPage {
     public WebElement nameInTable;
 
 
+
+
+
+
 }

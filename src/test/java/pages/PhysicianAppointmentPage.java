@@ -165,7 +165,7 @@ public class PhysicianAppointmentPage {
     public WebElement inpatientRoomTwinFull;
 
 
-//option[@value='5507']
+
 
 
 
@@ -203,6 +203,10 @@ public class PhysicianAppointmentPage {
 
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement inpatientRequestFailureMessage;
+
+
+
+
 
 
 }
