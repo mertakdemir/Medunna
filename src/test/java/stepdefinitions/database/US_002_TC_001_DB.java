@@ -16,7 +16,7 @@ public class US_002_TC_001_DB {
           JdbcUtils.createStatement();
 
     }
-    @Given("user gets the column {string} from table {string}")
+    @Given("user gets the column {string} from table {string}" )
     public void user_gets_the_column_from_table(String column, String table) {
         String query = "SELECT "+column+" FROM "+table+" Order By Id";
         JdbcUtils.executeQuery(query);

@@ -19,7 +19,6 @@ public class US_002_TC_001_Api {
 
     Response response;
     RegistrationPojo expectedData;
-
     RegistrationPojo actualData;
 
     @Given("user sends GET request to the {string}")
@@ -42,9 +41,9 @@ public class US_002_TC_001_Api {
     public void http_status_code_is(Integer statusCode) {
         assertEquals((int) statusCode, response.getStatusCode());
     }
-
-    @Then("verify email api")
-    public void verifyEmailApi() {
+    @Then("verify email and username api")
+    public void verifyEmailAndUsernameApi() {
         assertEquals(expectedData.getEmail(),actualData.getEmail());
+        assertEquals(expectedData.getLogin(),actualData.getLogin());
     }
 }

@@ -13,9 +13,9 @@ public class AdminAuthenticationMedunna {
     public static String generateTokenForAdmin() {
 
         Map<String, Object> gmi = new HashMap<>();
-        gmi.put("password", "Team05+");
+        gmi.put("password", "Team01+");
         gmi.put("rememberMe", true);
-        gmi.put("username", "AdminTeam05");
+        gmi.put("username", "AdminTeam01");
 
         Response response = given().contentType(ContentType.JSON).body(gmi).when().post("https://medunna.com/api/authenticate");
         response.prettyPrint();
