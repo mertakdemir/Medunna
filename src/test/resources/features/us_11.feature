@@ -1,6 +1,6 @@
 @US_011_Testing
 Feature:US_011
-  Background: Sign in Medunna
+  Background: Sign in Medunna and look My Appointment as doctor
     Given user is on the home page :  "https://medunna.com"
     When user clicks on user icon
     Then user clicks on Sign In Button
@@ -13,12 +13,18 @@ Feature:US_011
 
 
 
-  @US_005_TC_001
+  @US_011_TC_001
   Scenario: Doctor views their appointments
     Then Verify user (doctor) can see the appointment list in "My Appointments"
+    And close the application
 
-  @US_005_TC_002
+  @US_011_TC_002
   Scenario: Doctor views their appointments
     Then Verify user (doctor) can see time slots in "My Appointments"
+    And close the application
 
 
+  @US_011_TC_003_API
+  Scenario: Doctor views their appointments with API
+    Given user (doctor) get request for appointment list
+    And close the application

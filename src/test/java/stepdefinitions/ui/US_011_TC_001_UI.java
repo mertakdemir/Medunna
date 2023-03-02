@@ -2,19 +2,16 @@ package stepdefinitions.ui;
 
 
 import io.cucumber.java.en.*;
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import pages.LoginPage;
-import pages.PhysicianMyAppointmentsPage;
+import pages.PhysicianAppointmentPage;
 import utilities.ReusableMethods;
 
-import java.util.List;
-
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class US_011_TC_001_UI {
     LoginPage loginPage = new LoginPage();
-    PhysicianMyAppointmentsPage physicianMyAppointmentsPage= new PhysicianMyAppointmentsPage();
+    PhysicianAppointmentPage physicianAppointmentPage = new PhysicianAppointmentPage();
 
 
     @When("user\\(doctor) enters valid username {string} in username input")
@@ -32,22 +29,28 @@ public class US_011_TC_001_UI {
     @Then("Verify user \\(doctor) can see the appointment list in {string}")
     public void verify_user_doctor_can_see_the_appointment_list_in(String string) {
         ReusableMethods.waitFor(3);
-//        String fromText= physicianMyAppointmentsPage.timeSlots_from.getText();
-//        String toText = physicianMyAppointmentsPage.timeSlots_to.getText();
-//        System.out.println("Texts = " + fromText + toText);
-//
-//        assertTrue(physicianMyAppointmentsPage.timeSlots_from.isDisplayed());
-//        assertTrue(physicianMyAppointmentsPage.timeSlots_to.isDisplayed());
+
+        int allTable= physicianAppointmentPage.appointmentTable.size()-1;
+
+       for(int i=0; i<allTable; i++){
+        String items= physicianAppointmentPage.appointmentTable.get(i).getText();
+           System.out.println( i+1  + ". items = " + items);
+           assertTrue(physicianAppointmentPage.appointmentTable.get(i).isDisplayed());
+       }
 
     }
 
     @Then("Verify user \\(doctor) can see time slots in {string}")
     public void verify_user_doctor_can_see_time_slots_in(String string) {
         ReusableMethods.waitFor(3);
-//        assertTrue(physicianMyAppointmentsPage.appointmentTable.isDisplayed());
-        List<WebElement> allList  = (List) physicianMyAppointmentsPage.tableSize;
+        assertTrue(physicianAppointmentPage.fromText.isDisplayed());
+        assertTrue(physicianAppointmentPage.toText.isDisplayed());
+        assertTrue(physicianAppointmentPage.fromInput.isEnabled());
+        assertTrue(physicianAppointmentPage.toInput.isEnabled());
+        assertEquals("from", physicianAppointmentPage.fromText.getText());
+        assertEquals("to", physicianAppointmentPage.toText.getText());
 
-        System.out.println("Table Size = " + allList.size());
+
     }
 
 }

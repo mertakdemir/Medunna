@@ -206,7 +206,22 @@ public class PhysicianAppointmentPage {
 
 
 
+    //---------------zeynep------------
+
+    @FindBy(id = "fromDate")
+    public WebElement fromInput;
+
+    @FindBy(id = "toDate")
+    public WebElement toInput;
+
+    @FindBy(xpath = "//span[text()='from']")
+    public WebElement fromText;
+
+    @FindBy(xpath = "//span[text()='to']")
+    public WebElement toText;
 
 
+    @FindBy(xpath = "//*[@class='table']//th")
+    public List<WebElement> appointmentTable;
 
 }
