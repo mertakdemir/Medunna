@@ -32,12 +32,12 @@ public class TestItems {
     @FindBy(xpath = "//th[.='570']")
     public WebElement examFeePriceBoxVisibility;
 
-    /* @FindBy(xpath = "(//table//thead//tr//td[2])[1]")
+     @FindBy(xpath = "(//table//thead//tr//td[2])[1]")
      public WebElement testItemFeeVisibility;
 
     @FindBy(xpath = "(//table//thead//tr//td[2])[2]")
      public WebElement testItemFeePriceBoxVisibility;
- */
+
     @FindBy(xpath = "//a[@class='btn btn-danger btn-sm']")
     public WebElement createInvoiceButton;
 

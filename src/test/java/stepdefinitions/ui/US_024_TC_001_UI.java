@@ -162,8 +162,8 @@ public class US_024_TC_001_UI {
     public void verify_visibility_of_exam_fee_and_test_item_prices() {
         Assert.assertTrue(testItems.examFeeAppoVisibility.isDisplayed());
         Assert.assertTrue(testItems.examFeePriceBoxVisibility.isDisplayed());
-        //  Assert.assertTrue(testItems.testItemFeeVisibility.isDisplayed());
-        // Assert.assertTrue(testItems.testItemFeePriceBoxVisibility.isDisplayed());
+        Assert.assertTrue(testItems.testItemFeeVisibility.isDisplayed());
+        Assert.assertTrue(testItems.testItemFeePriceBoxVisibility.isDisplayed());
         ReusableMethods.waitFor(2);
 
     }
@@ -196,8 +196,8 @@ public class US_024_TC_001_UI {
     @Then("click on create invoice button")
     public void click_on_create_invoice_button() {
         ReusableMethods.waitFor(5);
-        testItems.createInvoiceButton.click();
-        ReusableMethods.waitFor(7);
+        JSUtils.clickElementByJS(testItems.createInvoiceButton);
+        ReusableMethods.waitFor(5);
     }
 
 
