@@ -208,10 +208,11 @@ public class Driver {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript(command, element);
     }
-    public static void selectAnItemFromDropdown(WebElement item, String selectableItem) {
+    public static void selectAnItemFromDropdown(WebElement item) {
         wait(5);
         Select select = new Select(item);
         for (int i = 0; i < select.getOptions().size(); i++) {
+            String selectableItem = null;
             if (select.getOptions().get(i).getText().equalsIgnoreCase(selectableItem)) {
                 select.getOptions().get(i).click();
                 break;

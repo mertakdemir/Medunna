@@ -17,17 +17,19 @@ import static utilities.AdminAuthenticationMedunna.generateTokenForAdmin;
 
 public class US_008_Api {
 
-    PostAppointmentPojo requestBody =new PostAppointmentPojo();
+    PostAppointmentPojo requestBody = new PostAppointmentPojo();
     Response response;
     Response response2;
     RequestSpecification spec;
     JsonPath json;
     AppointmentResponsePojo actualData;
+
     @Given("user sets the necessary path params to create an appointment")
     public void user_sets_the_necessary_path_params_to_create_an_appointment() {
         spec = new RequestSpecBuilder().setBaseUri("https://medunna.com").build();
         spec.pathParams("first", "api", "second", "appointments", "third", "request");
     }
+
     @Given("sets the expected data with valid {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void sets_the_expected_data_with_valid(String firstname, String lastname, String ssn, String email, String phone, String date, String appoSpeciality, String birthDate, String gender, String snumber) {
         requestBody.setFirstName(firstname);
@@ -41,6 +43,7 @@ public class US_008_Api {
         requestBody.setGender(gender);
         requestBody.setSnumber(snumber);
     }
+
     @Given("sends POST request and get the response to make an appointment")
     public void sends_post_request_and_get_the_response_to_make_an_appointment() {
         response = given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}/{second}/{third}");
@@ -70,7 +73,7 @@ public class US_008_Api {
         int appointmentId = json.getInt("id");
         spec.pathParams("first", "api", "second", "appointments", "third", appointmentId);
 
-        response2 = given().spec(spec).header("Authorization","Bearer "+generateTokenForAdmin()).when().get("/{first}/{second}/{third}");
+        response2 = given().spec(spec).header("Authorization", "Bearer " + generateTokenForAdmin()).when().get("/{first}/{second}/{third}");
         //response2.prettyPrint();
     }
 
@@ -80,10 +83,12 @@ public class US_008_Api {
         actualData = mapper.readValue(response2.asString(), AppointmentResponsePojo.class);
 
     }
+
     @Then("verify HTTP status code is {int} of appointment get request")
     public void verifyHTTPStatusCodeIsOfAppointmentGetRequest(int statusCode) {
         Assert.assertEquals(statusCode, response2.getStatusCode());
     }
+
     @Then("user validate appointment records of registered appointment")
     public void userValidateAppointmentRecordsOfRegisteredAppointment() {
         Assert.assertEquals(requestBody.getFirstName(), actualData.getPatient().getFirstName());
@@ -96,5 +101,7 @@ public class US_008_Api {
     }
 
 
-
 }
+
+
+
