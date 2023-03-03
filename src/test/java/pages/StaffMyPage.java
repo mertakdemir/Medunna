@@ -56,4 +56,19 @@ public class StaffMyPage {
     @FindBy(id = "c-test-result-cTest")
     public WebElement staffTestInput;
 
+    @FindBy(xpath = "(//span[.='Edit'])[1]")
+    public WebElement editAppointmentStaff;
+
+    @FindBy(id = "appointment-status")
+    public WebElement statusPendingStaff;
+
+    @FindBy(id = "appointment-physician")
+    public WebElement physicianChoose;
+
+    @FindBy(xpath = "//span[.='Save']")
+    public WebElement saveAppointmentEditStaff;
+
+
+
+
 }
