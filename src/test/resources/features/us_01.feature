@@ -53,9 +53,10 @@
 
     @US001_TC001_API
     Scenario: TC001_medunna_registration_post_API
-      Given user sends post request to the "https://medunna.com/api/account/"
-      Then Http status code is 200
-      Then verify all data
+
+      Given send post request to "https://medunna.com/api/register/" to create register
+      Then verifying all
+
 
     @US001_TC001_DB
     Scenario: TC001_medunna_registration_snn_DataBase
