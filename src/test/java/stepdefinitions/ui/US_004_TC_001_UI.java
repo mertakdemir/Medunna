@@ -22,7 +22,6 @@ public class US_004_TC_001_UI {
     CreateAUserOrEditPage createAUserOrEditPage = new CreateAUserOrEditPage();
     Actions actions = new Actions(Driver.getDriver());
     Faker faker = new Faker();
-
     @Given("User goes to the {string}")
     public void user_goes_to_the(String URL) {
         Driver.getDriver().get(ConfigReader.getProperty(URL));
