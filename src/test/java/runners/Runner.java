@@ -14,21 +14,21 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
-        monochrome=true,
+        monochrome= true,
         features = "./src/test/resources/features",
         glue = {"stepdefinitions", "hooks"},
-<<<<<<< HEAD
+
 
         dryRun = false,
-        tags = ""
+        tags = "@US_031_Api"
 
-=======
-        dryRun = false,
-        tags = ""
->>>>>>> master
+
 
 )
 
 
 public class Runner {
 }
+
+
+//2

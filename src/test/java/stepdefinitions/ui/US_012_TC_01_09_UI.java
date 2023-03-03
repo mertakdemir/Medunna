@@ -207,11 +207,6 @@ public class US_012_TC_01_09_UI {
     }
 
 
-    @And("close the application")
-    public void closeTheApplication() {
-        Driver.closeDriver();
-    }
-
     @And("user verifies {string} is selectable.")
     public void userVerifiesIsSelectable(String arg0) {
         physicianAppointmentPage.appointmentStatus.click();
