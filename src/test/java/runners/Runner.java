@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         features = "./src/test/resources/features",
         glue = {"stepdefinitions", "hooks"},
         dryRun = false,
-        tags = "@US_011_TC_005_API"
+        tags = ""
 
 
 
@@ -28,5 +28,3 @@ import org.junit.runner.RunWith;
 
 public class Runner {
 }
-
-

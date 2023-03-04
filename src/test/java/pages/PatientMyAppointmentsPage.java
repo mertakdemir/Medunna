@@ -14,9 +14,23 @@ public class PatientMyAppointmentsPage {
     @FindBy(xpath = "//table/tbody//td[2]//a")
     public WebElement nameInTable;
 
+    @FindBy(id = "register-submit")
+    public WebElement appointmentRequest;
 
 
+<<<<<<< HEAD
 
 
 
 }
+=======
+    @FindBy(xpath = "(//span[.='Edit'])[2]")
+    public WebElement editAppointment;
+
+    @FindBy(id="appointment-status")
+    public WebElement appointmentStatus;
+
+
+
+}
+>>>>>>> master
