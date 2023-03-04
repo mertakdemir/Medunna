@@ -16,7 +16,8 @@ public class US_011_TC_001_UI {
 
     @When("user\\(doctor) enters valid username {string} in username input")
     public void user_doctor_enters_valid_username_in_username_input(String username) {
-        loginPage.usernameInput.sendKeys(username);
+            loginPage.usernameInput.sendKeys(username);
+//        loginPage.usernameInput.sendKeys(username);
     }
 
     @And("user\\(doctor) enters valid password {string} in password input")

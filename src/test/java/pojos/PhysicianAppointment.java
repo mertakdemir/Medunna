@@ -1,6 +1,7 @@
 package pojos;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PhysicianAppointment {
@@ -15,14 +16,14 @@ public class PhysicianAppointment {
     private String diagnosis;
     private Object prescription;
     private Object description;
-    private PhysicianPojo physician;
+    private Physician physician;
     private Patient patient;
     private Object ctests;
 
     public PhysicianAppointment() {
     }
 
-    public PhysicianAppointment(String createdBy, String createdDate, int id, String startDate, String endDate, String status, String anamnesis, String treatment, String diagnosis, Object prescription, Object description, PhysicianPojo physician, Patient patient, Object ctests) {
+    public PhysicianAppointment(String createdBy, String createdDate, int id, String startDate, String endDate, String status, String anamnesis, String treatment, String diagnosis, Object prescription, Object description, Physician physician, Patient patient, Object ctests) {
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.id = id;
@@ -127,11 +128,11 @@ public class PhysicianAppointment {
         this.description = description;
     }
 
-    public PhysicianPojo getPhysician() {
+    public Physician getPhysician() {
         return physician;
     }
 
-    public void setPhysician(PhysicianPojo physician) {
+    public void setPhysician(Physician physician) {
         this.physician = physician;
     }
 
