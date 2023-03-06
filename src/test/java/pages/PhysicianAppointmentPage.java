@@ -206,6 +206,39 @@ public class PhysicianAppointmentPage {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
+    @FindBy(id="fromDate")
+    public WebElement appointmentFromInput;
+
+    @FindBy(id="toDate")
+    public WebElement appointmentToInput;
+
+
+
+
     //---------------zeynep------------
 
     @FindBy(id = "fromDate")
@@ -223,5 +256,6 @@ public class PhysicianAppointmentPage {
 
     @FindBy(xpath = "//*[@class='table']//th")
     public List<WebElement> appointmentTable;
+
 
 }
