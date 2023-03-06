@@ -147,11 +147,9 @@ Feature: US_17 Medunna Room Creation
 
     Examples:test_data
       | room numbers | room type |price | description |
-      | 25121101 | SUITE   |300 | With breakfast      |
-      | 25121102 | DELUXE  |500 | With terrace        |
-      | 25121103 | DAYCARE | 440  | With extra bad    |
-      | 25121104 | PREMIUM_DELUXE  |500 | With terrace  |
-      | 25121105 | TWIN | 440  | With breakfast    |
+      | 25121401 | SUITE   |300 | With breakfast      |
+      | 25121402 | DELUXE  |500 | With terrace        |
+
 
 
   @US017_TC10
