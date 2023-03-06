@@ -21,4 +21,11 @@ Feature: US_019
     And Admin is able to see all the physicians on the list
     Then Verify that Admin is able to delete a physician
     And close the application
+    
+    @US_019_TC_001_Api
+    Scenario: Admin sends Get Request and verify the Physician is exist
+      Given Admin adds necessary path params to the base url
+      And Admin sends the Get request and get the response
+      Then Admin verifies that the status code is 200
+
 
