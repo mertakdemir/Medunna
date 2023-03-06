@@ -205,4 +205,37 @@ public class PhysicianAppointmentPage {
     public WebElement inpatientRequestFailureMessage;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
+    @FindBy(id="fromDate")
+    public WebElement appointmentFromInput;
+
+    @FindBy(id="toDate")
+    public WebElement appointmentToInput;
+
+
+
+
 }
