@@ -128,6 +128,9 @@ public class AdminAdministrationPage {
 
 
 
+    //---------US_019---------
+    @FindBy(xpath = "//table")
+    public WebElement usersTable;
 
 
 
