@@ -165,7 +165,7 @@ public class PhysicianAppointmentPage {
     public WebElement inpatientRoomTwinFull;
 
 
-//option[@value='5507']
+
 
 
 
@@ -228,6 +228,7 @@ public class PhysicianAppointmentPage {
 
 
 
+
     //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
     @FindBy(id="fromDate")
     public WebElement appointmentFromInput;
@@ -236,6 +237,25 @@ public class PhysicianAppointmentPage {
     public WebElement appointmentToInput;
 
 
+
+
+    //---------------zeynep------------
+
+    @FindBy(id = "fromDate")
+    public WebElement fromInput;
+
+    @FindBy(id = "toDate")
+    public WebElement toInput;
+
+    @FindBy(xpath = "//span[text()='from']")
+    public WebElement fromText;
+
+    @FindBy(xpath = "//span[text()='to']")
+    public WebElement toText;
+
+
+    @FindBy(xpath = "//*[@class='table']//th")
+    public List<WebElement> appointmentTable;
 
 
 }
