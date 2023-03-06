@@ -21,5 +21,31 @@ public class CreateOrEditPhysicianPage {
     @FindBy(xpath = "//button[.='Search User']")
     public WebElement searcUserButton;
 
+    @FindBy(id = "physician-firstName")
+    public WebElement firstNameInput;
+
+    @FindBy(id = "physician-lastName")
+    public WebElement lastNameInput;
+
+    @FindBy(id = "physician1-birthDate")
+    public WebElement birthDateInput;
+
+    @FindBy(id = "physician-phone")
+    public WebElement phoneInput;
+
+    @FindBy(id = "physician-speciality")
+    public WebElement specialityDropdown;
+
+    @FindBy(id = "file_image")
+    public WebElement fileImageInput;
+
+    @FindBy(id = "physician-examFee")
+    public WebElement examFeeInput;
+
+    @FindBy(xpath = "//span[.='Save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "(//span[.='Back'])[1]")
+    public WebElement backButton;
 
 }
