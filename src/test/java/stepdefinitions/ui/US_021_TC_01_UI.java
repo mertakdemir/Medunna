@@ -202,11 +202,11 @@ public class US_021_TC_01_UI {
     }
     @Then("verify user has been activated")
     public void verify_user_has_been_activated() {
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         Assert.assertTrue(adminAdministrationPage.activatedSuccessMessage.getText().contains("updated"));
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         JSUtils.clickElementByJS(adminAdministrationPage.IDButton);
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         Assert.assertEquals(fakeEmail, adminAdministrationPage.emailOfNewlyUpdatedUser.getText());
         Assert.assertEquals("Activated", adminAdministrationPage.activatedStatusOfNewlyUpdatedUser.getText());
     }

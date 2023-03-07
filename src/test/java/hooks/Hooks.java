@@ -47,4 +47,8 @@ public class Hooks {
         setUp();
     }
 
+    @Before("@US_019_TC_001_Api")
+    public void beforeApiForUS19(){
+        setUp();
+    }
 }

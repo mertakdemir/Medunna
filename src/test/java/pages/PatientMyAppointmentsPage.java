@@ -18,19 +18,18 @@ public class PatientMyAppointmentsPage {
     public WebElement appointmentRequest;
 
 
-<<<<<<< HEAD
+
+
+
+
+
+
+    @FindBy(xpath = "(//span[.='Edit'])[2]")
+    public WebElement editAppointment;
+
+    @FindBy(id="appointment-status")
+    public WebElement appointmentStatus;
 
 
 
 }
-=======
-@FindBy(xpath = "(//span[.='Edit'])[2]")
-public WebElement editAppointment;
-
-@FindBy(id="appointment-status")
-public WebElement appointmentStatus;
-
-
-
-        }
-        >>>>>>> master
