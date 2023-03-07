@@ -32,7 +32,7 @@ Feature: US_028_TC_001
   @US028_TC002_API
   Scenario: TC002_medunna_user_reading_messages_using_API
     Given user sends get request "https://medunna.com/api/c-messages/8974" to read message
-    Then user verify gets the message data to read
+    Then verify message data
 
   @US028_TC001_DB
   Scenario: TC001_medunna_validate_messages_with_DB

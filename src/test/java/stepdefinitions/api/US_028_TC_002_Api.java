@@ -30,8 +30,8 @@ public class US_028_TC_002_Api {
         assertEquals(200, response.getStatusCode());
 
     }
-    @Then("user verify gets the message data to read")
-    public void user_verify_gets_the_message_data_to_read() throws JsonProcessingException {
+    @Then("verify message data")
+    public void verify_message_data() throws JsonProcessingException {
         actualData= new ObjectMapper().readValue(response.asString(), MessageGetPojo.class);
         Assert.assertEquals(expectedData.getEmail(),actualData.getEmail());
         Assert.assertEquals(expectedData.getName(),actualData.getName());
