@@ -15,4 +15,6 @@ Feature:US_025
     Then verify see appointment text in My Appointment Page
     And verify see Show Tests Button
     When user(patient) clicks Show Test Button
+    Then verify Test Page
+    And verify Test Results page is displayed
 
