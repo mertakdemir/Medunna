@@ -3,13 +3,14 @@ package stepdefinitions.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.Assert;
+import pojos.MessagePojo;
 import pojos.RegistrationPojo;
-
+import pojos.RegistrationPostPojo;
 
 import java.util.ArrayList;
 
@@ -17,59 +18,68 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 import static utilities.AdminAuthenticationMedunna.generateTokenForAdmin;
 
+public class US_001_TC_001_Api {
 
-public class US_001_TC_001_Api
-{
-
+    /*
+    {
+  "activated": true,
+  "authorities": [
+    "string"
+  ],
+  "createdBy": "string",
+  "createdDate": "2023-02-23T19:29:41.427Z",
+  "email": "string",
+  "firstName": "string",
+  "id": 0,
+  "imageUrl": "string",
+  "langKey": "string",
+  "lastModifiedBy": "string",
+  "lastModifiedDate": "2023-02-23T19:29:41.428Z",
+  "lastName": "string",
+  "login": "string",
+  "password": "string",
+  "ssn": "string"
+}
+     */
+    Faker faker=new Faker();
+    RegistrationPostPojo expectedData;
+    RegistrationPostPojo actualData;
     Response response;
-    RegistrationPojo expectedData;
+    String username= faker.name().username();
+    String name= faker.name().firstName();
+    String lastName= faker.name().lastName();
+    String ssn=faker.idNumber().ssnValid();
+    String email=faker.internet().emailAddress();
+    String password=faker.internet().password();
 
-    RegistrationPojo actualData;
 
-    @Given("user sends post request to the {string}")
-    public void user_sends_post_request_to_the(String endPoint) throws JsonProcessingException {
-
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("ROLE_ADMIN");
-        expectedData= new RegistrationPojo(1132,"adminteam05","mary","kate","567-34-4444","mary@hotmail.com",
-                "string",true,"string","anonymousUser","2023-02-18T12:10:08.075588Z",
-                "adminteam05","2023-02-23T00:20:58.173648Z",arrayList);
-
-        response = given().when().contentType(ContentType.JSON).body(expectedData).headers("Authorization","Bearer "+generateTokenForAdmin()).post(endPoint);
-        response.prettyPrint();
-
-        System.out.println(expectedData);
-    }
-    @Then("Http status code is {int}")
-    public void http_status_code_is(Integer statusCode) {
-        assertEquals((int) statusCode, response.getStatusCode());
-    }
-
-    @Then("verify all data")
-    public void verifyAllData() throws JsonProcessingException {
+    @Given("send post request to {string} to create register")
+    public void send_post_request_to_create_register(String endPointed)  {
 
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("ROLE_ADMIN");
-        expectedData= new RegistrationPojo(1132,"adminteam05","mary","kate","567-34-4444","mary@hotmail.com",
-                "string",true,"string","anonymousUser","2023-02-18T12:10:08.075588Z",
-                "adminteam05","2023-02-23T00:20:58.173648Z",arrayList);
+        arrayList.add("string");
+        expectedData= new RegistrationPostPojo(true, arrayList, "string","2023-02-23T19:29:41.427Z",email,name,"string","string","string","2023-02-23T19:29:41.428Z",lastName,username,password,ssn);
+        response = given().when().contentType(ContentType.JSON).body(expectedData).headers("Authorization","Bearer "+generateTokenForAdmin()).post(endPointed);
+        System.out.println(expectedData);
+        assertEquals(201, response.getStatusCode());
 
-        response = given().when().headers("Authorization","Bearer "+generateTokenForAdmin()).get("https://medunna.com/api/account/");
-        response.prettyPrint();
 
-        actualData= new ObjectMapper().readValue(response.asString(),RegistrationPojo.class);
+    }
+    @Then("verifying all")
+    public void verifying_all() throws JsonProcessingException {
+        actualData= new ObjectMapper().readValue(response.asString(), RegistrationPostPojo.class);
 
         System.out.println(expectedData);
-
 
         assertEquals(expectedData.getFirstName(),actualData.getFirstName());
         assertEquals(expectedData.getLastName(),actualData.getLastName());
         assertEquals(expectedData.getSsn(),actualData.getSsn());
         assertEquals(expectedData.getEmail(),actualData.getEmail());
+        assertEquals(expectedData.getLogin(),actualData.getLogin());
+
 
 
 
 
     }
-
 }
