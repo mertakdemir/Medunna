@@ -22,15 +22,18 @@ public class HomePage {
 
     @FindBy(id = "entity-menu")
     public WebElement itemsAndTitles;
-
+//    @FindBy(xpath = "//a[@class='dropdown-item active']")
+//    public WebElement testItems;
     @FindBy(linkText = "Room")
     public WebElement roomOption;
 
     @FindBy(xpath = "//span[.='Administration']")
     public WebElement administration;
-
     @FindBy(xpath = "//span[.='User management']")
     public WebElement userManagementLink;
+
+    @FindBy(partialLinkText = "Test Item")
+    public WebElement testItems;
 
 
 
