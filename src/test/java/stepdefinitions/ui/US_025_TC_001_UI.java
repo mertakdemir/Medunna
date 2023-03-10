@@ -26,15 +26,19 @@ public class US_025_TC_001_UI {
     PatientMyAppointmentsPage patientMyAppointmentsPage;
     PhysicianAppointmentPage physicianAppointmentPage;
 
-    String windowsPatient;
-    String windowsPhysician;
+    Set<String> windowHandles =  Driver.getDriver().getWindowHandles();
+//    String windowsPatient;
+//    String windowsPhysician;
 
     List<String> expectedData;
     List<String> actualData;
 
+    List<String> expectedTestResult;
+    List<String> actualTestResult;
+
     @Then("user\\(patient) enters valid username {string} in username input")
     public void user_patient_enters_valid_username_in_username_input(String username) {
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(1);
         loginPage.usernameInput.sendKeys(username);
     }
 
@@ -124,8 +128,8 @@ public class US_025_TC_001_UI {
         homePage.myPagesButton.click();
     }
 
-    @Then("verify Test Results table items")
-    public void verify_test_results_table_items() {
+    @And("verify Tests page is displayed table items")
+    public void verifyTestsPageIsDisplayedTableItems() {
 
         physicianAppointmentPage = new PhysicianAppointmentPage();
         physicianAppointmentPage.editButtons.get(0).click();
@@ -146,6 +150,71 @@ public class US_025_TC_001_UI {
         }
 
     }
+
+
+    @When("user\\(patient) clicks View Result Button")
+    public void userPatientClicksViewResultButton() {
+        physicianAppointmentPage.viewResultsButton.click();
+        assertTrue(physicianAppointmentPage.testResultsText.isDisplayed());
+        expectedTestResult = new ArrayList<>();
+        for(int i=0; i<physicianAppointmentPage.testsTableBodyItems.size()-1; i++){
+            expectedTestResult.add(physicianAppointmentPage.testResultsTableBodyItems.get(i).getText());
+        }
+        System.out.println("Expected Test Result = " + expectedTestResult);
+
+        ReusableMethods.waitFor(2);
+        Driver.getDriver().switchTo().window(windowHandles.stream().toList().get(0));
+        patientMyAppointmentsPage.viewResultButton.click();
+        assertTrue(patientMyAppointmentsPage.testResultsText.isDisplayed());
+
+        actualTestResult = new ArrayList<>();
+        for(int i=0; i<patientMyAppointmentsPage.testResultsTableBodyItems.size()-1; i++){
+            actualTestResult.add(patientMyAppointmentsPage.testResultsTableBodyItems.get(i).getText());
+        }
+        System.out.println("Actual Test Result = " + actualTestResult);
+
+        ReusableMethods.waitFor(2);
+
+    // verfy
+        for (int i=0; i<expectedTestResult.size(); i++) {
+            assertEquals(expectedTestResult.get(i), actualTestResult.get(i));
+        }
+
+
+    }
+
+    @When("user\\(patient) clicks Show Invoice Button")
+    public void userPatientClicksShowInvoiceButton() {
+        for (int i=0; i<patientMyAppointmentsPage.showInvoiceButtons.size(); i++) {
+            patientMyAppointmentsPage.showInvoiceButtons.get(i).click();
+            ReusableMethods.waitFor(2);
+            Driver.getDriver().navigate().back();
+        }
+
+    }
+
+    @Then("verify the Invoice Page {string}")
+    public void verifyTheInvoicePage(String text) {
+        for (int i=0; i<patientMyAppointmentsPage.showInvoiceButtons.size(); i++) {
+            patientMyAppointmentsPage.showInvoiceButtons.get(i).click();
+            assertTrue(patientMyAppointmentsPage.invoiceText.getText().contains(text));
+
+            System.out.println("patientMyAppointmentsPage = " + patientMyAppointmentsPage.invoiceTableItems.size());
+            assertEquals("Date", patientMyAppointmentsPage.invoiceTableItems.get(2).getText().substring(0,4));
+            assertEquals("SSN", patientMyAppointmentsPage.invoiceTableItems.get(3).getText().substring(0,3));
+            assertEquals("Name", patientMyAppointmentsPage.invoiceTableItems.get(4).getText().substring(0,4));
+            assertEquals("Payment", patientMyAppointmentsPage.invoiceTableItems.get(5).getText().substring(0,7));
+            assertEquals("Total Cost", patientMyAppointmentsPage.invoiceTableItems.get(6).getText().substring(0,10));
+
+            assertTrue(patientMyAppointmentsPage.invoiceTableItems.get(3).getText().contains("SSN"));
+            ReusableMethods.waitFor(2);
+            Driver.getDriver().navigate().back();
+        }
+
+
+    }
+
+
 
 }
 

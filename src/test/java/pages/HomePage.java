@@ -101,6 +101,10 @@ public class HomePage {
     @FindBy(xpath = "//span[.='CONTACT']")
     public WebElement contactIcon;
 
+    //------------------ US_19 -----------------
+    @FindBy(xpath = "//span[.='Physician']")
+    public WebElement physicianLink;
+
 
 
 
