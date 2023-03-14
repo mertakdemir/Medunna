@@ -107,5 +107,11 @@ public class HomePage {
 
 
 
+    //------------------ US_20 -----------------
+    @FindBy(xpath = "(//span[.='Staff'])[1]")
+    public WebElement staffLink;
+
+
+
 
 }

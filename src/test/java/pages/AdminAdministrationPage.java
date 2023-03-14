@@ -135,6 +135,20 @@ public class AdminAdministrationPage {
 
 
 
+//US_20
+    @FindBy(xpath = "(//*[@class='page-link'])[9]")
+    public WebElement lastRegisteredPage;
+
+   @FindBy(xpath = "(//table//tbody//tr[last()]//td)//*[text()='Edit']")
+    public WebElement lastRegisteredPageLastRowEditButton;
+
+   @FindBy(xpath = "(//table//tbody//tr[last()]//td)//*[text()='Delete']")
+    public WebElement lastRegisteredPageLastRowDeleteButton;
+
+    @FindBy(xpath = "//*[text()='Save']")
+    public WebElement saveButtonAktivatedAndProfiles;
+
+
 
 
 
