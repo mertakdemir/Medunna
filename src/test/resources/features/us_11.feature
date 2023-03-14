@@ -57,7 +57,8 @@ Feature:US_011
 
   @US_011_TC_006_DB
   Scenario: Doctor views their appointments with DB
-    Given user connects to the database
+    Given user(doctor) connects to the database
+    And crate a statement
     And user (doctor) gets the column "*" from table "public.appointment.physician_id"
     Then Verify the "Physician" column contains the expected data "Sezen"
     And close the database connection

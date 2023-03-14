@@ -173,6 +173,7 @@ public class JdbcUtils {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        System.out.println("query = " + query);
     }
     public static List<Object> getColumnData(String query, String column) {
         executeQuery(query);
