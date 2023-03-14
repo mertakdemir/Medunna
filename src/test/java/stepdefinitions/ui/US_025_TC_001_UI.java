@@ -210,12 +210,7 @@ public class US_025_TC_001_UI {
             ReusableMethods.waitFor(2);
             Driver.getDriver().navigate().back();
         }
-
-
     }
-
-
-
 }
 
 
