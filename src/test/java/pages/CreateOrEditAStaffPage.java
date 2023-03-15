@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class AdminCreateOrEditAStaffPage {
+public class CreateOrEditAStaffPage {
 
-    public AdminCreateOrEditAStaffPage(){
+    public CreateOrEditAStaffPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

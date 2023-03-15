@@ -124,7 +124,7 @@ Feature: US_020 Create new staff
     Then close the application
 
 
-  @US_020_TC_006_API
+  @US_020_TC_001_API
   Scenario: Get Request and Delete Request for staff
     Given user sends the GET request for created sataff data to the url
     Then verify HTTP status code is 200 of staff get request
@@ -132,18 +132,16 @@ Feature: US_020 Create new staff
     Then verify HTTP status code is 200 of staff delete request
 
 
-  @US_020_TC_007_DB
+  @US_020_TC_001_DB
   Scenario:Validate all staff with DB
     Given user connects to the database
     And Admin gets the column "last_modified_by" from "staff" staff table
     Then verify staff created_by list contains "adminteam01"
-    Then close the application
     And close the connection
 
-  @US_020_TC_008_DB
+  @US_020_TC_002_DB
   Scenario:Validate all staff with DB
     Given user connects to the database
     And Admin gets the column id "id" from "staff" staff table
     Then verify staff created_by list contains existing user id 22115
-    Then close the application
     And close the connection

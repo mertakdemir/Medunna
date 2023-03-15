@@ -5,8 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class AdminCreateOrEditACountryPage {
-    AdminCreateOrEditACountryPage(){
+public class CreateOrEditACountryPage {
+  public CreateOrEditACountryPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -14,7 +14,7 @@ public class AdminCreateOrEditACountryPage {
     public WebElement nameInput;
 
     @FindBy(id = "country-createdDate")
-    public WebElement CreatedDateInput;
+    public WebElement createdDateInput;
 
     @FindBy(id = "save-entity")
     public WebElement saveButton;
@@ -25,5 +25,7 @@ public class AdminCreateOrEditACountryPage {
     @FindBy(xpath = "//div[@class='Toastify__toast-container Toastify__toast-container--top-left toastify-container']")
     public WebElement popup;
 
+  @FindBy(id = "jhi-confirm-delete-country")
+  public WebElement confirmDeleteOperation;
 
 }

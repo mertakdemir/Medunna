@@ -111,7 +111,12 @@ public class HomePage {
     @FindBy(xpath = "(//span[.='Staff'])[1]")
     public WebElement staffLink;
 
+   @FindBy(xpath = "(//span[.='Country'])[1]")
+    public WebElement countryLink;
 
+
+    @FindBy(xpath = "(//span[.='State/City'])[1]")
+    public WebElement stateOrCityLink;
 
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class US_020_TC_007_DB {
+public class US_020_TC_001_DB {
 
     List<Object> lastModifiedcolumnList;
     List<Object> idcolumnList;

@@ -15,8 +15,8 @@ import static org.junit.Assert.assertTrue;
 public class US_020_TC_001_UI {
 
     HomePage homePage = new HomePage();
-    LoginPage loginPage = new LoginPage();
-    AdminCreateOrEditAStaffPage createOrEditAStaffPage= new AdminCreateOrEditAStaffPage();
+
+    CreateOrEditAStaffPage createOrEditAStaffPage= new CreateOrEditAStaffPage();
    AdminStaffPage adminStaffPage= new AdminStaffPage();
 
     RegisterPage registerPage = new RegisterPage();

@@ -16,4 +16,20 @@ public class Countries {
     @FindBy(id = "jh-create-entity")
     public WebElement createANewCountryInput;
 
+    @FindBy(xpath = "//div[@class='Toastify__toast-body']")
+    public WebElement successCreateCountrPopup;
+
+
+
+    @FindBy(id = "jh-create-entity")
+    public WebElement deleteoption;
+
+   @FindBy(id = "jh-create-entity")
+    public WebElement editoption;
+
+   @FindBy(id = "jh-create-entity")
+    public WebElement viewoption;
+
+ //  //table//tbody//td[2]
+//  //div[@class='Toastify__toast-body']
 }
