@@ -41,6 +41,11 @@ public class Driver {
             if ("chrome".equals(browser)) {
                 options.addArguments("--remote-allow-origins=*");
                 WebDriverManager.chromedriver().setup();
+<<<<<<< HEAD
+=======
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+>>>>>>> master
                 driver = new ChromeDriver(options);
             } else if ("firefox".equals(browser)) {
                 WebDriverManager.firefoxdriver().setup();

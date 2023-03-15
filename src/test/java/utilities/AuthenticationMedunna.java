@@ -23,4 +23,34 @@ public class AuthenticationMedunna {
         return response.jsonPath().getString("id_token");
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static String generateTokenForPatient() {
+
+        Map<String, Object> gmi = new HashMap<>();
+        gmi.put("password", "User.123");
+        gmi.put("rememberMe", true);
+        gmi.put("username", "candy");
+
+        Response response = given().contentType(ContentType.JSON).body(gmi).when().post("https://medunna.com/api/authenticate");
+        response.prettyPrint();
+
+        return response.jsonPath().getString("id_token");
+    }
+
 }

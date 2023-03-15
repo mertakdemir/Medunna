@@ -1,4 +1,4 @@
-@US_011_Testing
+@US_025_Testing
 Feature:US_025
 
   @US_025_TC_001
@@ -45,3 +45,28 @@ Feature:US_025
     When user(patient) clicks Show Invoice Button
     Then verify the Invoice Page "INVOICE"
     And close the application
+
+  @US_025_TC_003_API
+  Scenario: Patient sees Tests  with API
+    Given Set the url for Tests
+    When Set the expected data with pojo for Tests
+    And Send the request and get the response for Tests
+    And Get the actual data for Tests
+    Then Do assertion for Tests
+
+  @US_025_TC_004_API
+  Scenario: Patient sees Tests Results with API
+    Given Set the url for Test Results
+    When Set the expected data with pojo for Test Results
+    And Send the request and get the response for Test Results
+    And Get the actual data for Test Results
+    Then Do assertion for Test Results
+
+  @US_025_TC_005_API
+  Scenario: Patient sees Tests Results with API
+    Given Set the url for Test Results
+    When Set the expected data with pojo for Test Results
+    And Send the request and get the response for Test Results
+    And Get the actual data for Test Results
+    Then Do assertion for Test Results
+    And Do assertion with expected_method
