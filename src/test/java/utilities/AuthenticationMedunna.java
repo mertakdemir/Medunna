@@ -24,6 +24,16 @@ public class AuthenticationMedunna {
     }
 
 
+    public static String generateTokenForStaff() {
+
+        Map<String, Object> gmi1 = new HashMap<>();
+        gmi1.put("password", "ferid03?");
+        gmi1.put("rememberMe", true);
+        gmi1.put("username", "ferid");
+
+
+        return null;
+    }
 
 
 
@@ -47,10 +57,25 @@ public class AuthenticationMedunna {
         gmi.put("rememberMe", true);
         gmi.put("username", "candy");
 
+
         Response response = given().contentType(ContentType.JSON).body(gmi).when().post("https://medunna.com/api/authenticate");
         response.prettyPrint();
 
         return response.jsonPath().getString("id_token");
     }
+
+/*
+STAFF
+1-isim:Feride Toprak
+SNN: 581-01-0303
+İD:12491
+mail: ferid@gmail.com
+
+username:ferid
+pasword : ferid03?
+
+ */
+
+
 
 }
