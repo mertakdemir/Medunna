@@ -23,18 +23,47 @@ public class AuthenticationMedunna {
         return response.jsonPath().getString("id_token");
     }
 
+
     public static String generateTokenForStaff() {
 
+        Map<String, Object> gmi1 = new HashMap<>();
+        gmi1.put("password", "ferid03?");
+        gmi1.put("rememberMe", true);
+        gmi1.put("username", "ferid");
+
+
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static String generateTokenForPatient() {
+
         Map<String, Object> gmi = new HashMap<>();
-        gmi.put("password", "ferid03?");
+        gmi.put("password", "User.123");
         gmi.put("rememberMe", true);
-        gmi.put("username", "ferid");
+        gmi.put("username", "candy");
+
 
         Response response = given().contentType(ContentType.JSON).body(gmi).when().post("https://medunna.com/api/authenticate");
         response.prettyPrint();
 
         return response.jsonPath().getString("id_token");
     }
+
 /*
 STAFF
 1-isim:Feride Toprak
@@ -46,5 +75,7 @@ username:ferid
 pasword : ferid03?
 
  */
+
+
 
 }
