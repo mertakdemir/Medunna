@@ -29,6 +29,11 @@ Feature: US_028_TC_001
     Given user sends post request "https://medunna.com/api/c-messages/" to create message
     Then user gets the message data to read
 
+  @US028_TC002_API
+  Scenario: TC002_medunna_user_reading_messages_using_API
+    Given user sends get request "https://medunna.com/api/c-messages/8974" to read message
+    Then verify message data
+
   @US028_TC001_DB
   Scenario: TC001_medunna_validate_messages_with_DB
     Given user connects to the database
