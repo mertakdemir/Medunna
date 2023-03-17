@@ -38,10 +38,7 @@ public class US_018_TC_001_UI {
     public void user_verifies_default_max_value_input_is_displayed() {
         Assert.assertTrue(testItemPage.defaultMaxValueLabel.isDisplayed());
     }
-    @Then("user verifies Created Date input is displayed as MM\\/DAY\\/YEAR")
-    public void user_verifies_created_date_input_is_displayed_as_mm_day_year() {
-        Assert.assertTrue(testItemPage.createdDateLabel.isDisplayed());
-    }
+
     @Then("user enters {string} in name input")
     public void user_enters_in_name_input(String string) {
      testItemPage.nameInput.sendKeys("glucose");
@@ -87,4 +84,8 @@ public class US_018_TC_001_UI {
     }
 
 
+    @Then("user verifies Created Date input is displayed as MM\\/DAY\\/YEAR")
+    public void userVerifiesCreatedDateInputIsDisplayedAsMMDAYYEAR() {
+        Assert.assertTrue(testItemPage.createdDateLabel.isDisplayed());
+    }
 }

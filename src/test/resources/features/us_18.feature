@@ -1,4 +1,4 @@
-@US_018
+@US_018_UI
 Feature: US_18_Test item creation
   Scenario: TC001_UI
     Given user is on the home page :  "https://medunna.com"
@@ -28,9 +28,10 @@ Feature: US_18_Test item creation
     And user clicks on Delete button
     And user confirm delete item
 
-
-    Scenario: TC_002_API
-
+    @US_018_API
+    Scenario: TC_002_API Test Item Creation
+    Given user send post request to "https://medunna.com/api/c-test-items" to create test items
+      Then user get test items data and validates
 
 
 
