@@ -10,6 +10,7 @@ import io.restassured.specification.RequestSpecification;
 import pojos.*;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static io.restassured.RestAssured.*;
 import static org.junit.Assert.assertEquals;
@@ -144,8 +145,7 @@ public class US_011_TC_001_Api {
         assertEquals(Arrays.stream(actualData).toList().get(0).getPhysician().getFirstName(),
                      Arrays.stream(actualData).toList().get(1).getPhysician().getFirstName());
 
-
-
+        System.out.println(Arrays.stream(actualData).toList());
 
     }
 }
