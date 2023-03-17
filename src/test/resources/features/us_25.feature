@@ -11,7 +11,7 @@ Feature:US_025
     And user clicks on Remember Me checkbox
     And user clicks on Sign In submit Button
     And user clicks on My Pages(Patient)
-    And user clicks on My Appointments
+    And user(Patient) clicks on My Appointments
     Then verify see appointment text "Appointments" in My Appointment Page
     And verify see Show Tests Button
     When user(patient) clicks Show Test Button
@@ -24,7 +24,8 @@ Feature:US_025
     And user clicks on Remember Me checkbox
     And user clicks on Sign In submit Button
     And user clicks on My Pages(Physician)
-    And user clicks on My Appointments
+    And user(physisian) clicks on My Appointments
+    And user selects appointment time
     And verify Tests page is displayed table items
     When user(patient) clicks View Result Button
     Then verify Test Results page is displayed
@@ -63,7 +64,7 @@ Feature:US_025
     Then Do assertion for Test Results
 
   @US_025_TC_005_API
-  Scenario: Patient sees Tests Results with API
+  Scenario: Patient sees Tests Results with API-Method
     Given Set the url for Test Results
     When Set the expected data with pojo for Test Results
     And Send the request and get the response for Test Results

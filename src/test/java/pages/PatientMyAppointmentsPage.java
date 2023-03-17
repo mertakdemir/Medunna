@@ -103,7 +103,14 @@ public class PatientMyAppointmentsPage {
     public List<WebElement> invoiceTableItems;
 
 
+    @FindBy(id="fromDate")
+    public WebElement appointmentFromInput;
 
+    @FindBy(id="toDate")
+    public WebElement appointmentToInput;
+
+
+//table//tbody//td[6]
 
 
 

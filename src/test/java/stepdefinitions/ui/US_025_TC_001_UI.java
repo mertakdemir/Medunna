@@ -2,7 +2,9 @@ package stepdefinitions.ui;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.PatientMyAppointmentsPage;
@@ -55,10 +57,16 @@ public class US_025_TC_001_UI {
         homePage.myPagesButtonPatient.click();
     }
 
+    @And("user\\(Patient) clicks on My Appointments")
+    public void userPatientClicksOnMyAppointments() {
+        homePage.myAppointmentsButton.click();
+        patientMyAppointmentsPage = new PatientMyAppointmentsPage();
+        selectPatientAppointmentTime();
+        ReusableMethods.waitFor(3);
+    }
 
     @Then("verify see appointment text {string} in My Appointment Page")
     public void verifySeeAppointmentTextInMyAppointmentPage(String text) {
-        patientMyAppointmentsPage = new PatientMyAppointmentsPage();
         assertTrue(patientMyAppointmentsPage.appointmentText.getText().contains(text));
         patientMyAppointmentsPage.appointmentText.isDisplayed();
     }
@@ -69,6 +77,8 @@ public class US_025_TC_001_UI {
         for (WebElement w : patientMyAppointmentsPage.showTestButtons) {
             w.isDisplayed();
         }
+        ReusableMethods.waitFor(5);
+
     }
 
     @When("user\\(patient) clicks Show Test Button")
@@ -77,34 +87,26 @@ public class US_025_TC_001_UI {
             patientMyAppointmentsPage.showTestButtons.get(i).click();
             ReusableMethods.waitFor(2);
             Driver.getDriver().navigate().back();
+            selectPatientAppointmentTime();
+            ReusableMethods.waitFor(3);
         }
     }
 
     @And("verify Tests page text {string} is displayed")
     public void verifyTestsPageTextIsDisplayed(String text) {
+        ReusableMethods.waitFor(5);
         patientMyAppointmentsPage.showTestButton1.click();
         assertTrue(patientMyAppointmentsPage.testPageText.getText().contains(text));
-        patientMyAppointmentsPage.testPageText.isDisplayed();
+        assertTrue(patientMyAppointmentsPage.testPageText.isDisplayed());
         ReusableMethods.waitFor(2);
 
-        actualData = new ArrayList<>();
+        actualData = new ArrayList<>(); //Patient'in tum table body'sini actualData'ya atadik.
         for(int i=0; i<patientMyAppointmentsPage.testsTableBodyItems.size()-1; i++){
             actualData.add(patientMyAppointmentsPage.testsTableBodyItems.get(i).getText());
         }
         System.out.println("Actual Data = " + actualData);
 
     }
-
-
-    @Given("user\\(physician) enters valid username {string} in username input")
-    public void user_physician_enters_valid_username_in_username_input(String userName) {
-        loginPage.usernameInput.sendKeys(userName);
-    }
-    @Given("user\\(physisian) enters valid password {string} in password input")
-    public void user_physisian_enters_valid_password_in_password_input(String password) {
-        loginPage.passwordInput.sendKeys(password);
-    }
-
 
     @Given("open new window")
     public void openNewWindow() {
@@ -121,30 +123,59 @@ public class US_025_TC_001_UI {
                 Driver.getDriver().switchTo().window(windowHandle);
             }
         }
+        ReusableMethods.waitFor(3);
     }
+
+
+    @Given("user\\(physician) enters valid username {string} in username input")
+    public void user_physician_enters_valid_username_in_username_input(String userName) {
+        loginPage.usernameInput.sendKeys(userName);
+    }
+    @Given("user\\(physisian) enters valid password {string} in password input")
+    public void user_physisian_enters_valid_password_in_password_input(String password) {
+        loginPage.passwordInput.sendKeys(password);
+    }
+
+
+
 
     @And("user clicks on My Pages\\(Physician)")
     public void userClicksOnMyPagesPhysician() {
         homePage.myPagesButton.click();
+        ReusableMethods.waitFor(1);
+
     }
+
+
+    @And("user\\(physisian) clicks on My Appointments")
+    public void userPhysisianClicksOnMyAppointments() {
+        homePage.myAppointmentsButton.click();
+        physicianAppointmentPage = new PhysicianAppointmentPage();
+    }
+
+    @And("user selects appointment time")
+    public void userSelectsAppointmentTime() {
+        ReusableMethods.waitFor(3);
+        selectPhysicianAppointmentTime();
+        ReusableMethods.waitFor(3);
+   }
 
     @And("verify Tests page is displayed table items")
     public void verifyTestsPageIsDisplayedTableItems() {
-
-        physicianAppointmentPage = new PhysicianAppointmentPage();
+        ReusableMethods.waitFor(3);
         physicianAppointmentPage.editButtons.get(0).click();
         ReusableMethods.waitFor(2);
         physicianAppointmentPage.showTestResultsButton.click();
         ReusableMethods.waitFor(2);
 
-        expectedData = new ArrayList<>();
+        expectedData = new ArrayList<>();//Physician'in tum table body'sini expectedData'ya atadik.
         for(int i=0; i<physicianAppointmentPage.testsTableBodyItems.size()-1; i++){
             expectedData.add(physicianAppointmentPage.testsTableBodyItems.get(i).getText());
         }
         System.out.println("Expected Data = " + expectedData);
 
 
-    // verify
+    // verify Test table iceriklerini karsilastirdik
         for(int i=0; i< expectedData.size()-1; i++){
         assertEquals(expectedData.get(i), actualData.get(i));
         }
@@ -156,6 +187,7 @@ public class US_025_TC_001_UI {
     public void userPatientClicksViewResultButton() {
         physicianAppointmentPage.viewResultsButton.click();
         assertTrue(physicianAppointmentPage.testResultsText.isDisplayed());
+
         expectedTestResult = new ArrayList<>();
         for(int i=0; i<physicianAppointmentPage.testsTableBodyItems.size()-1; i++){
             expectedTestResult.add(physicianAppointmentPage.testResultsTableBodyItems.get(i).getText());
@@ -180,9 +212,13 @@ public class US_025_TC_001_UI {
             assertEquals(expectedTestResult.get(i), actualTestResult.get(i));
         }
 
+    // veryfy with test-ID in Tests Results Table--->>> farkili testlerin ayni test_id'sine ait oldugunu dogrulama
+        assertEquals(patientMyAppointmentsPage.testResultsTests.get(0).getText(),
+                     patientMyAppointmentsPage.testResultsTests.get(1).getText());
 
     }
 
+    //invoice
     @When("user\\(patient) clicks Show Invoice Button")
     public void userPatientClicksShowInvoiceButton() {
         for (int i=0; i<patientMyAppointmentsPage.showInvoiceButtons.size(); i++) {
@@ -193,6 +229,7 @@ public class US_025_TC_001_UI {
 
     }
 
+    //invoice
     @Then("verify the Invoice Page {string}")
     public void verifyTheInvoicePage(String text) {
         for (int i=0; i<patientMyAppointmentsPage.showInvoiceButtons.size(); i++) {
@@ -211,7 +248,30 @@ public class US_025_TC_001_UI {
             Driver.getDriver().navigate().back();
         }
     }
+
+
+
+
+    //methods
+    public void selectPatientAppointmentTime(){
+        patientMyAppointmentsPage.appointmentFromInput.clear();
+        patientMyAppointmentsPage.appointmentFromInput.sendKeys("01.03.2023");
+        patientMyAppointmentsPage.appointmentToInput.clear();
+        patientMyAppointmentsPage.appointmentToInput.sendKeys("15.03.2023");
+
+    }
+
+    public void selectPhysicianAppointmentTime(){
+        ReusableMethods.waitFor(3);
+        physicianAppointmentPage.fromInput.clear();
+        physicianAppointmentPage.fromInput.sendKeys("01.03.2023");
+        physicianAppointmentPage.toInput.clear();
+        physicianAppointmentPage.toInput.sendKeys("15.03.2023");
+    }
+
+
 }
+
 
 
 
