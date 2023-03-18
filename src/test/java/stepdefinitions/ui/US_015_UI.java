@@ -24,6 +24,7 @@ public class US_015_UI {
     public void userClicksOnMyInpatients() {
         physicianAppointmentPage.myInpatientButton.click();
     }
+
     @And("user clicks on patient edit button")
     public void userClicksEditOnEditButtonForPatient() {
         physicianAppointmentPage.patientEditButtonInpatient.click();
@@ -129,4 +130,5 @@ public class US_015_UI {
     public void physicianVerifiesThePatientSRoomIsUpdatedToTWINFULL() {
         Assert.assertTrue(physicianAppointmentPage.inpatientRoomTwinFull.isDisplayed());
     }
+
 }

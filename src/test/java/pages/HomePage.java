@@ -106,6 +106,12 @@ public class HomePage {
     public WebElement physicianLink;
 
 
+    //............US_16....................
+    @FindBy(linkText = "Patient")
+    public WebElement patientOption;
+
+    @FindBy(linkText = "Appointment")
+    public WebElement appointmentOption;
 
 
 }
