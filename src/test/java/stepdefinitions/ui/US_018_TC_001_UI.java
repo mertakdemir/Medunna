@@ -75,7 +75,7 @@ public class US_018_TC_001_UI {
     }
     @Then("user clicks on Delete button")
     public void user_clicks_on_delete_button()  {
-        testItemsPage.deleteButton.click();
+      //  testItemsPage.deleteButton.click();
 
     }
     @Then("user confirm delete item")

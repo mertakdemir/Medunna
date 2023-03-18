@@ -1,5 +1,6 @@
 package hooks;
 
+import base_url.MedunnaBaseUrlWithoutAnnotation;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -49,6 +50,11 @@ public class Hooks {
 
     @Before("@US_019_TC_001_Api")
     public void beforeApiForUS19(){
+        setUp();
+    }
+
+    @Before("@US_018_API")
+    public void beforeApiForUS18(){
         setUp();
     }
 }

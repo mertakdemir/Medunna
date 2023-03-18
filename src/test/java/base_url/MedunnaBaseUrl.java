@@ -8,10 +8,10 @@ import org.junit.Before;
 
 public class MedunnaBaseUrl {
 
-    public RequestSpecification spec;
+    public  RequestSpecification spec;
 
     @Before
-    public void setUp(){
+    public  void setUp(){
 
         spec = new RequestSpecBuilder().setBaseUri("https://medunna.com/").build();
 
