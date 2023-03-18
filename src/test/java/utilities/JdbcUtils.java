@@ -159,6 +159,7 @@ public class JdbcUtils {
         }
         return columnData;
     }
+
     public static void executeQuery(String query) {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -172,6 +173,7 @@ public class JdbcUtils {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        System.out.println("query = " + query);
     }
     public static List<Object> getColumnData(String query, String column) {
         executeQuery(query);

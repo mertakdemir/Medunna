@@ -2,12 +2,15 @@ package stepdefinitions.ui;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.PhysicianAppointmentPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.JSUtils;
 import utilities.ReusableMethods;
 
 import java.util.ArrayList;
@@ -19,6 +22,8 @@ public class US_014_TC_01_UI {
     HomePage homePage = new HomePage();
     LoginPage loginPage = new LoginPage();
     PhysicianAppointmentPage physicianAppointmentPage = new PhysicianAppointmentPage();
+
+    Actions action;
 
     @Given("user-physician is on {string} page")
     public void user_physician_is_on_page(String url) {
@@ -68,9 +73,26 @@ public class US_014_TC_01_UI {
 //*************************************************************************************
     @When("user-physician click on Edit button")
     public void user_physician_click_on_edit_button() {
+        action = new Actions(Driver.getDriver());
+
         ReusableMethods.waitFor(1);
-        physicianAppointmentPage.editAppoToSeeTestResultsButton.click();
+        physicianAppointmentPage.appointmentFromInput.clear();
+        ReusableMethods.waitFor(1);
+        physicianAppointmentPage.appointmentToInput.clear();
+        ReusableMethods.waitFor(1);
+        action.
+                click(physicianAppointmentPage.appointmentFromInput).
+                sendKeys("2023").sendKeys(Keys.ARROW_RIGHT).
+                sendKeys("02").sendKeys(Keys.ARROW_RIGHT).
+                sendKeys("23").sendKeys(Keys.TAB).
+               sendKeys("2023").sendKeys(Keys.ARROW_RIGHT).
+                sendKeys("03").sendKeys(Keys.ARROW_RIGHT).
+                sendKeys("07").
+                build().perform();
+        ReusableMethods.waitFor(5);
+       physicianAppointmentPage.editAppoToSeeTestResultsButton.click();
     }
+
     @Then("verify Show Test Results button is displayed on the site")
     public void verify_show_test_results_button_is_displayed_on_the_site() {
         ReusableMethods.waitFor(1);

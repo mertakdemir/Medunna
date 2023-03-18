@@ -20,7 +20,11 @@ import org.junit.runner.RunWith;
 
 
         dryRun = false,
+<<<<<<< HEAD
         tags = "@US_21_TC_01"
+=======
+        tags = "@US_021"
+>>>>>>> master
 
 
 
@@ -30,6 +34,9 @@ import org.junit.runner.RunWith;
 
 public class Runner {
 }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> master

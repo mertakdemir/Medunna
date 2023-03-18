@@ -81,7 +81,7 @@ public class AdminAdministrationPage {
     @FindBy(xpath = "//thead//th[8]")
     public WebElement createdDateButton;
 
-    @FindBy(xpath = "(//span[.='View'])[7]")
+    @FindBy(xpath = "(//span[.='View'])[5]")
     public WebElement viewNewlyCreatedUserButton;
 
     @FindBy(xpath = "//dd[2]")
@@ -93,7 +93,7 @@ public class AdminAdministrationPage {
     @FindBy(xpath = "//dd[4]")
     public WebElement viewUserEmail;
 
-    @FindBy(xpath = "(//span[.='Edit'])[7]")
+    @FindBy(xpath = "(//span[.='Edit'])[5]")
     public WebElement editNewlyCreatedUserButton;
 
     @FindBy(xpath = "//input[@id='activated']")
@@ -117,7 +117,7 @@ public class AdminAdministrationPage {
     @FindBy(xpath = "//tr[1]/td[7]/div/span")
     public WebElement profileRoleOfNewlyUpdatedUser;
 
-    @FindBy(xpath = "(//span[.='Delete'])[7]")
+    @FindBy(xpath = "(//span[.='Delete'])[5]")
     public WebElement deleteNewlyCreatedUserButton;
 
     @FindBy(xpath = "//button[2]/span")
@@ -128,8 +128,25 @@ public class AdminAdministrationPage {
 
 
 
+    //---------US_019---------
+    @FindBy(xpath = "//table")
+    public WebElement usersTable;
 
 
+
+
+//US_20
+    @FindBy(xpath = "(//*[@class='page-link'])[9]")
+    public WebElement lastRegisteredPage;
+
+   @FindBy(xpath = "(//table//tbody//tr[last()]//td)//*[text()='Edit']")
+    public WebElement lastRegisteredPageLastRowEditButton;
+
+   @FindBy(xpath = "(//table//tbody//tr[last()]//td)//*[text()='Delete']")
+    public WebElement lastRegisteredPageLastRowDeleteButton;
+
+    @FindBy(xpath = "//*[text()='Save']")
+    public WebElement saveButtonAktivatedAndProfiles;
 
 
 

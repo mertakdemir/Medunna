@@ -30,7 +30,7 @@ public class US_002_TC_001_Api {
                 "string",true,"string","anonymousUser","2023-02-18T12:10:08.075588Z",
                 "adminteam05","2023-02-23T00:20:58.173648Z",arrayList);
 
-        response = given().when().headers("Authorization","Bearer "+generateTokenForAdmin()).get(endPoint);
+        response = given().when().headers("Authorization","Bearer "+generateTokenForAdmin()).get( endPoint);
         response.prettyPrint();
 
         actualData= new ObjectMapper().readValue(response.asString(),RegistrationPojo.class);

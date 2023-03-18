@@ -42,11 +42,13 @@ public class Hooks {
 
 
 
-
     @Before("@US_006_TC_001_Api")
     public void beforeApi(){
         setUp();
     }
 
-
+    @Before("@US_019_TC_001_Api")
+    public void beforeApiForUS19(){
+        setUp();
+    }
 }
