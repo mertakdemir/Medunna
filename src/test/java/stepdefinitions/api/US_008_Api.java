@@ -40,6 +40,7 @@ public class US_008_Api {
         requestBody.setBirthDate(birthDate);
         requestBody.setGender(gender);
         requestBody.setSnumber(snumber);
+
     }
     @Given("sends POST request and get the response to make an appointment")
     public void sends_post_request_and_get_the_response_to_make_an_appointment() {
