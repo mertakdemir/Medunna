@@ -175,12 +175,6 @@ public class PhysicianAppointmentPage {
 
 
 
-
-
-
-
-
-
     //------------------------------for https://medunna.com/physician-appointment page---------------------------------------------------------------------
 
     @FindBy(xpath = "(//span[.='Edit'])[7]")
@@ -257,5 +251,16 @@ public class PhysicianAppointmentPage {
     @FindBy(xpath = "//*[@class='table']//th")
     public List<WebElement> appointmentTable;
 
+    @FindBy(xpath = "//table[@class='table']//td")
+    public List<WebElement> testsTableBodyItems;
+
+    @FindBy(xpath = "//*[text()='Edit']")
+    public List<WebElement> editButtons;
+
+    @FindBy(xpath = " //span[.='Test Results']")
+    public WebElement testResultsText;
+
+    @FindBy(xpath = "//table[@class='table']//td")
+    public List<WebElement> testResultsTableBodyItems;
 
 }

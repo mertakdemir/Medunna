@@ -95,6 +95,9 @@ public class HomePage {
     @FindBy(xpath = "//*[.='MY PAGES(PATIENT)']")
     public WebElement myPagesButtonPatient;
 
+    @FindBy(xpath = "(//*[.='Make an Appointment'])[1]")
+    public WebElement makeAnAppointmentLinkPatient;
+
 
 
     //------------------ US_27 -----------------
@@ -106,6 +109,17 @@ public class HomePage {
     public WebElement physicianLink;
 
 
+
+    //------------------ US_20 -----------------
+    @FindBy(xpath = "(//span[.='Staff'])[1]")
+    public WebElement staffLink;
+
+   @FindBy(xpath = "(//span[.='Country'])[1]")
+    public WebElement countryLink;
+
+
+    @FindBy(xpath = "(//span[.='State/City'])[1]")
+    public WebElement stateOrCityLink;
 
 
 }
