@@ -45,6 +45,7 @@ public class PatientAppointmentPage {
     public WebElement pastDateFailureMessage;
 
     @FindBy(xpath = "//div[.='Phone number is required.']")
+
     public WebElement phoneNumberFailureMessage;
 
 
