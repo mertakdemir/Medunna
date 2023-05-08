@@ -42,7 +42,7 @@ public class US_006_TC_001_Api {
         expectedData.setGender("male");
         expectedData.setSnumber("string");
     }
-    @Given("User sends the post request and gets the response")
+    @Given("User sends the post request and gets the response")   //Hamcrest
     public void user_sends_the_post_request_and_gets_the_response() {
         response = given().spec(spec).headers("Authorization", "Bearer "+generateTokenForAdmin()).contentType(ContentType.JSON).body(expectedData).when().post("/{first}/{second}/{third}");
         response.prettyPrint();

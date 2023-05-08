@@ -30,16 +30,17 @@ public class Driver {
     }
     //to initialize the driver we create a static method
     public static WebDriver getDriver() {
+
+
         //create the driver if and only if it is null
         if (driver == null) {
             String browser = ConfigReader.getProperty("browser");
             if ("chrome".equals(browser)) {
+
                 WebDriverManager.chromedriver().setup();
-                ChromeOptions options = new ChromeOptions();
+                ChromeOptions options=new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(options);
-
-              //  driver = new ChromeDriver();
 
 
             } else if ("firefox".equals(browser)) {

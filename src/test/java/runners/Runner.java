@@ -17,14 +17,8 @@ import org.junit.runner.RunWith;
         monochrome= true,
         features = "./src/test/resources/features",
         glue = {"stepdefinitions", "hooks"},
-
-
         dryRun = false,
-<<<<<<< HEAD
-        tags = "@US_21_TC_01"
-=======
-        tags = "@US_021"
->>>>>>> master
+        tags = "@US_031_Api"
 
 
 
@@ -34,9 +28,3 @@ import org.junit.runner.RunWith;
 
 public class Runner {
 }
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> master
