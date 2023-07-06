@@ -11,112 +11,27 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "account-menu")
-    public WebElement userIcon;
+    @FindBy(xpath = "//a[@href='/login']")
+    public WebElement loginIcon;
 
-    @FindBy(id = "login-item")
-    public WebElement signInOption;
+    @FindBy(xpath = "//a[@href='/register']")
+    public WebElement registerIcon;
 
-    @FindBy(xpath = "//a[@href='/account/register']")
-    public WebElement registerOption;
+    @FindBy(xpath = "//*[.='Home']")
+    public WebElement homeIcon;
 
-    @FindBy(id = "entity-menu")
-    public WebElement itemsAndTitles;
+    @FindBy(xpath = "//*[.='Courses']")
+    public WebElement coursesIcon;
 
-    @FindBy(linkText = "Room")
-    public WebElement roomOption;
+    @FindBy(xpath = "//*[.='Events']")
+    public WebElement eventsIcon;
 
-    @FindBy(xpath = "//span[.='Administration']")
-    public WebElement administration;
+    @FindBy(xpath = "//*[.='Blog']")
+    public WebElement blogIcon;
 
-    @FindBy(xpath = "//span[.='User management']")
-    public WebElement userManagementLink;
-
-
-
-    // -----------zeynep---------------
-    @FindBy(xpath = "(//*[@data-icon='user'])[2]")
-    public WebElement userIconName;
-
-    @FindBy(xpath = "//span[.='Sign out']")
-    public WebElement signOut;
-
-
-    @FindBy(xpath = "//*[.='MY PAGES']")
-    public WebElement myPagesButton;
-
-    @FindBy(xpath = "//*[.='My Appointments']")
-    public WebElement myAppointmentsButton;
-
-
-
-
-//----------Mert-----------------
-
-    @FindBy(id = "firstName")
-    public WebElement firstNameInputForAppointment;
-
-    @FindBy(xpath = "//*[.='Your FirstName is required.']")
-    public WebElement firstNameWarningMessage;
-
-    @FindBy(id = "lastName")
-    public WebElement lastNameInputForAppointment;
-
-    @FindBy(xpath = "//*[.='Your LastName is required.']")
-    public WebElement lastNameWarningMessage;
-
-    @FindBy(xpath = "//input[@id='ssn']")
-    public WebElement ssnInputForAppointment;
-
-    @FindBy(xpath = "//*[.='Your SSN is required.']")
-    public WebElement SSNWarningMessage;
-
-    @FindBy(id = "email")
-    public WebElement emailInputForAppointment;
-
-    @FindBy(xpath = "//*[.='Your email is required.']")
-    public WebElement emailWarningMessage;
-
-    @FindBy(id = "phone")
-    public WebElement phoneNumberInputForAppointment;
-
-    @FindBy(xpath = "//*[.='Phone number is required.']")
-    public WebElement phoneNumberWarningMessage;
-
-    @FindBy(xpath = "//*[.='Phone number is invalid']")
-    public WebElement phoneNumberInvalidMessage;
-
-    @FindBy(id = "appoDate")
-    public WebElement dateInputForAppointment;
-
-    @FindBy(id = "register-submit")
-    public WebElement sendAnAppointmentRequestButton;
-
-    @FindBy(xpath = "//*[.='MY PAGES(PATIENT)']")
-    public WebElement myPagesButtonPatient;
-
-
-
-    //------------------ US_27 -----------------
-    @FindBy(xpath = "//span[.='CONTACT']")
+    @FindBy(xpath = "//*[.='Contact']")
     public WebElement contactIcon;
 
-    //------------------ US_19 -----------------
-    @FindBy(xpath = "//span[.='Physician']")
-    public WebElement physicianLink;
-
-
-
-    //------------------ US_20 -----------------
-    @FindBy(xpath = "(//span[.='Staff'])[1]")
-    public WebElement staffLink;
-
-   @FindBy(xpath = "(//span[.='Country'])[1]")
-    public WebElement countryLink;
-
-
-    @FindBy(xpath = "(//span[.='State/City'])[1]")
-    public WebElement stateOrCityLink;
 
 
 }

@@ -17,9 +17,9 @@ public class DBUtils {
      * DBUtils.createConnection(); -> to connect to teh database
      */
     public static void createConnection() {
-        String url = "jdbc:postgresql://157.230.48.97:5432/medunna_db_v2";
+        String url = "jdbc:postgresql://157.230.48.97:5432/school_management";
         String username="select_user";
-        String password="Medunna_pass_@6";
+        String password="43w5ijfso";
         try {
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
@@ -65,9 +65,9 @@ public class DBUtils {
 
 
     public static Connection getConnection() {
-        String url = "jdbc:sqlserver://184.168.194.58:1433;databaseName=crystalkeyhotels2;user=Ahmet_User;password=Ahmet123!";
-        String username="Ahmet_User";
-        String password="Ahmet123!";
+        String url = "jdbc:postgresql://157.230.48.97:5432/school_management";
+        String username="select_user";
+        String password="43w5ijfso";
         try {
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {

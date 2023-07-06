@@ -1,255 +1,190 @@
-@US_006_End_to_end
-Feature: US_006
-  @US_006_TC_001_UI
-  Scenario Outline: New patients should make appointment to be processed in hospital
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    Then verify that ssn "<ssn>" is matching with user's
-    And User enters valid email "<email>"
-    And User enters valid phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that the appointment has been created
-    And close the application
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Leo | Caprio | 345-66-7346 | leocaprioo@gmail.com | 953-433-7751 | 26-02-2023 |
+
+@US_06_smoke_test
+Feature: US_06 Deans should be able to create a Vice Dean account.
+
+  Background: Sign in StudentManagement
+    Given user is on the home page :  "https://managementonschools.com/login"
+    When user clicks on login icon
+    And user enters valid username "AdminProject09" in username input
+    And user enters valid password "12345678" in password input
+    And user clicks on Login Button
+    And user clicks on Menu Button
+    And user clicks on Vise Dean Management Button
 
 
-  @US_006_TC_002_UI
-  Scenario Outline: New patients should not be able to make appointment without entering first name
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User does not enter first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User enters valid phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that warning message for first name input is displayed
-    And close the application
 
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      |  | Gul | 345-66-7346 | yavuzgull@gmail.com | 954-433-7751 | 26-02-2023 |
-
-  @US_006_TC_003_UI
-  Scenario Outline: New patients should not be able to make appointment with providing digits for the first name
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User does not enter any character for the first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User enters valid phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that warning message for first name input is displayed
-    And close the application
-
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | 12313 | Gul | 345-66-7346 | yavuzzgull@gmail.com | 953-433-7751 | 26-02-2023 |
-
-  @US_006_TC_004_UI
-  Scenario Outline: New patients should not be able to make appointment with different SSN
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters different ssn than the registered ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User enters valid phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that warning message for the ssn input is displayed
-    And close the application
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Yavuz | Gul | 345-66-1111 | yavuzzgull@gmail.com | 953-433-7751 | 26-02-2023 |
-
-  @US_006_TC_005_UI
-  Scenario Outline: New patients should not be able to make appointment without entering last name
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User does not enter last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User enters valid phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that warning message for last name input is displayed
-    And close the application
-
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Yavuz || 345-66-7346 | yavuzgull@gmail.com | 954-433-7751 | 26-02-2023 |
+  @US06_TC01
+  Scenario: TC_001 "Name" must be entered and cannot be left blank.
+    When user passes Name field without filling
+    Then user verifies Required text is visible when user does not fill name field
+    When user fills in Name field with "Ada"
+    Then user verifies Required text is not visible for name field
+    Then user close the browser
 
 
-  @US_006_TC_006_UI
-  Scenario Outline: New patients should not be able to make appointment with providing digits for the last name
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User does not enter any character for the last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User enters valid phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that warning message for last name input is displayed
-    And close the application
 
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Yavuz | 123123 | 345-66-7346 | yavuzzgull@gmail.com | 953-433-7751 | 26-02-2023 |
+  @US06_TC02
+  Scenario: TC_002 "Surname" must be entered and cannot be left blank.
+    And user fills in Name field with "Ada"
+    Then user passes Surname field without filling
+    Then user verifies Required text is visible when user does not fill surname field
+    Then user fills in Surname field with "Berg"
+    Then user verifies Required text is not visible for surname field
+    Then user close the browser
 
 
-  @US_006_TC_007_UI
-  Scenario Outline: New patients should not be able to make appointment without providing email
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User does not enter email "<email>"
-    And User enters valid phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that warning message for email input is displayed
-    And close the application
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Leo | Caprio | 345-66-7346 || 953-433-7751 | 26-02-2023 |
+  @US06_TC03
+  Scenario: TC_003 "Birth Place" must be entered and cannot be left blank.
+    When user fills in Name field with "Ada"
+    Then user fills in Surname field with "Berg"
+    When user passes Birth Place field without filling
+    Then user verifies Required text is visible when user does not fill Birth Place field
+    Then user fills in Birth Place field with "Norway"
+    Then user verifies Required text is not visible for Birth Place field
+    Then user close the browser
 
 
-  @US_006_TC_008_UI
-  Scenario Outline: New patients should not be able to make appointment without providing phone number
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User does not enter phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that warning message for phone number input is displayed
-    And close the application
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Leo | Caprio | 345-66-7346 | yavuzzgull@gmail.com || 26-02-2023 |
+  @US06_TC04
+  Scenario: TC_004 "Date of birth" must be entered and cannot be left blank.
+    When user fills in Name field with "Ada"
+    And user fills in Surname field with "Berg"
+    And user fills in Birth Place field with "Norway"
+    When user passes Date Of Birth field without filling
+    Then user verifies Required text is visible when user does not fill Date Of Birthe field
+    Then user fills in Date Of Birth field with "29.11.2000"
+    Then user verifies Required text is not visible for Date Of Birth field
+    Then user close the browser
+
+  @US06_TC05
+  Scenario: TC_005 "Phone number" must be entered and cannot be left blank.
+    When user fills in Name field with "Ada"
+    And user fills in Surname field with "Berg"
+    And user fills in Birth Place field with "Norway"
+    And user fills in Date Of Birth field with "29.11.2000"
+    When user passes Phone number field without filling
+    Then user verifies Required text is visible when user does not fill Phone number field
+    Then user fills in Phone number field with "355-478-7894"
+    Then user verifies Required text is not visible for Phone number field
+    Then user close the browser
 
 
-  @US_006_TC_009_UI
-  Scenario Outline: New patients should not be able to make appointment with providing less than 10 digits
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User enters less than 10 digits for phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that invalid phone number message for phone number input is displayed
-    And close the application
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Leo | Caprio | 345-66-7346 | yavuzzgull@gmail.com | 953-433-775 | 26-02-2023 |
+
+  @US06_TC06
+  Scenario: TC_006 SSN must be entered and must contain a "-" after the 3rd and 5th digits and must consist of 9 digits in total and cannot be left blank.
+    When user fills in Name field with "Ada"
+    And user fills in Surname field with "Berg"
+    And user fills in Birth Place field with "Norway"
+    And user fills in Date Of Birth field with "29.11.2000"
+    And user fills in Phone number field with "355-478-7894"
+    When user passes SSN field without filling
+    Then user verifies Required text is visible when user does not fill SSN field
+    Then user fills in SSN number field with "777-455-8963"
+    Then user verifies Required text is not visible for SSN field
+    Then user close the browser
 
 
-  @US_006_TC_010_UI
-  Scenario Outline: New patients should not be able to make appointment with providing more than 10 digits
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User enters more than 10 digits for phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that invalid phone number message for phone number input is displayed
-    And close the application
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Leo | Caprio | 345-66-7346 | yavuzzgull@gmail.com | 953-433-77555 | 26-02-2023 |
+#
+#
+#  @US06_TC02
+#  Scenario: TC_002 If you are updating an appointment, then user (doctor) should see patient's info such as
+#  id, start and end date, Status, physician
+#    Then user verifies patient id is visible
+#    Then user verifies start date is visible
+#    Then user verifies end date is visible
+#    Then user verifies status is visible
+#    Then user verifies physician is visible
+#    Then user closes the page
+#
+#
+#
+#  @US012_TC03
+#  Scenario: TC_003 doctor should type in Anamnesis, Treatment, and Diagnosis as required fields
+#    And user fills in Anamnesis field with "Anamnesistext"
+#    And user fills in Treatments field with "Treatmentstext"
+#    And user fills in Diagnosis field with "Diagnosistext"
+#    And user clicks on save button
+#    And user verifies Anamnesis text which is written by user is visible
+#    And user verifies Treatments text which is written by user is visible
+#    And user verifies Diagnosis text which is written by user is visible
+#    Then user verifies appointment is saved with Appointments text is visible.
+#    Then user closes the page
+#
+#
+#  @US012_TC04
+#  Scenario: TC_004 doctor should type in Anamnesis, Treatment, and Diagnosis as required fields
+#    And user fills in Anamnesis field with "Anamnesistext"
+#    And user fills in Treatments field with "Treatmentstext"
+#    And user does not fill Diagnosis field
+#    And user clicks on save button
+#    Then user verifies "This field is required." text is visible.
+#    Then user closes the page
+#
+#  @US012_TC05
+#  Scenario: TC_004 doctor should type in Anamnesis, Treatment, and Diagnosis as required fields
+#    And user fills in Anamnesis field with "Anamnesistext"
+#    And user does not fill in Treatments field
+#    And user fills in Diagnosis field with "Diagnosistext"
+#    And user clicks on save button
+#    Then user verifies "This field is required." text is visible.
+#    Then user closes the page
+#
+#  @US012_TC06
+#  Scenario: TC_004 doctor should type in Anamnesis, Treatment, and Diagnosis as required fields
+#    And user does not fill Anamnesis field.
+#    And user fills in Treatments field with "Treatmentstext"
+#    And user fills in Diagnosis field with "Diagnosistext"
+#    And user clicks on save button
+#    Then user verifies "This field is required." text is visible.
+#    Then user closes the page
+#
+#
+#  @US012_TC07
+#  Scenario: TC_005 prescription and description can be optional
+#    And user fills in Anamnesis field with "Anamnesistext"
+#    And user fills in Treatments field with "Treatmentstext"
+#    And user fills in Diagnosis field with "Diagnosistext"
+#    And user fills Prescription field with "Prescriptiontext"
+#    And user fills Description field with "Descriptiontext"
+#    And user clicks on save button
+#    Then user verifies appointment is saved with Appointments text is visible.
+#    Then user closes the page
+#
+#
+#  @US012_TC08
+#  Scenario: TC_006 prescription and description can be optional
+#    And user fills in Anamnesis field with "Anamnesistext"
+#    And user fills in Treatments field with "Treatmentstext"
+#    And user fills in Diagnosis field with "Diagnosistext"
+#    And user does not fill Prescription field
+#    And user does not fill Description field
+#    And user clicks on save button
+#    Then user verifies appointment is saved with Appointments text is visible.
+#    Then user closes the page
+#
+#
+#
+#  @US012_TC09
+#  Scenario: TC_007 Status can be only selected as PENDING, COMPLETED or CANCELLED by Doctor
+#    And user clicks on "UNAPPROVED" button
+#    And user verifies "UNAPPROVED" is not selectable.
+#    And user clicks on "PENDING" button
+#    And user verifies "PENDING" is selectable.
+#    And user clicks on "CANCELLED" button
+#    And user verifies "CANCELLED" is selectable.
+#    And user clicks on "COMPLETED" button
+#    And user verifies "COMPLETED" is selectable.
+#
+#
+#
+#  @US012_TC10
+#  Scenario: TC_007 Status can be only selected as PENDING, COMPLETED or CANCELLED by Doctor
+#    And User selects status as "COMPLETED"
+#    And user fills in Anamnesis field with "Anamnesistext"
+#    And user fills in Treatments field with "Treatmentstext"
+#    And user fills in Diagnosis field with "Diagnosistext"
+#    And user fills Prescription field with "Prescriptiontext"
+#    And user fills Description field with "Descriptiontext"
+#    And user clicks on save button
+#    Then user verifies status is "COMPLETED"
+#    Then user closes the page
 
-
-  @US_006_TC_011_UI
-  Scenario Outline: New patients should not be able to make appointment without providing "-" after 3rd digit
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User does not enter "-" afters 3rd digit for phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that invalid phone number message for phone number input is displayed
-    And close the application
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Leo | Caprio | 345-66-7346 | yavuzzgull@gmail.com | 953433-7755 | 26-02-2023 |
-
-
-  @US_006_TC_012_UI
-  Scenario Outline: New patients should not be able to make appointment without providing "-" after 6th digit
-    Given User goes to the "medunna_url"
-    When User tries to log in
-    And User scrolls all the way down
-    And User enters valid first name "<firstName>"
-    And User enters valid last name "<lastName>"
-    And User enters valid ssn "<ssn>"
-    And User enters valid email "<email>"
-    And User does not enter "-" afters 6th digit for phone number "<phoneNumber>"
-    And User enters valid date "<date>"
-    And User clicks on Send an Appointment Request button
-    Then Verify that invalid phone number message for phone number input is displayed
-    And close the application
-    Examples:
-      | firstName | lastName | ssn | email | phoneNumber | date |
-      | Leo | Caprio | 345-66-7346 | yavuzzgull@gmail.com | 953-4337755 | 26-02-2023 |
-
-
-  @US_006_TC_001_Api
-  Scenario: User validates the necessary request is done by Api
-    Given User adds the necessary path params to the base url
-    And User sets the expected data
-    And User sends the post request and gets the response
-    Then verify that status code is 201
-    And Do assertion according to post request
-    Given User adds the necessary path params to the base url for Get Request
-    And User sends the Get request and gets the response
-    Then Verify that status code is 200
-    And Do assertion according to Get request
-
-  @US_006_TC_001_DB
-  Scenario Outline: Database validation test
-    Given User connects to the Medunna Database to be able to read the data
-    And user gets the id column "id" from "public.appointment" table
-    Then Verify the id column contains the expected data "<data>"
-    And close the database connection
-    Examples:
-      | data |
-      | 8285 |
-      | 8284 |
-      | 8282 |

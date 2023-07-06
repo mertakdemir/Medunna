@@ -7,7 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
 
-import static base_url.MedunnaBaseUrlWithoutAnnotation.setUp;
+import static base_url.StudentManagementBaseUrlWithoutAnnotation.setUp;
 
 public class Hooks {
 
@@ -42,13 +42,13 @@ public class Hooks {
 
 
 
-    @Before("@US_006_TC_001_Api")
+    @Before("@US_06_TC_01_Api")       //example
     public void beforeApi(){
         setUp();
     }
 
-    @Before("@US_019_TC_001_Api")
-    public void beforeApiForUS19(){
+    @Before("@US_06_TC_01_Api")        //example
+    public void beforeApiForUS06(){
         setUp();
     }
 }

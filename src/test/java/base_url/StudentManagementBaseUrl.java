@@ -6,14 +6,14 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
 
-public class MedunnaBaseUrl {
+public class StudentManagementBaseUrl {
 
     public RequestSpecification spec;
 
     @Before
     public void setUp(){
 
-        spec = new RequestSpecBuilder().setBaseUri("https://medunna.com/").build();
+        spec = new RequestSpecBuilder().setBaseUri("https://managementonschools.com/").build();
 
     }
 
