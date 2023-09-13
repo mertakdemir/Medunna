@@ -62,8 +62,6 @@ public class US_001_TC_001_Api {
         response = given().when().contentType(ContentType.JSON).body(expectedData).headers("Authorization","Bearer "+generateTokenForAdmin()).post(endPointed);
         System.out.println(expectedData);
         assertEquals(201, response.getStatusCode());
-
-
     }
     @Then("verifying all")
     public void verifying_all() throws JsonProcessingException {
@@ -76,10 +74,5 @@ public class US_001_TC_001_Api {
         assertEquals(expectedData.getSsn(),actualData.getSsn());
         assertEquals(expectedData.getEmail(),actualData.getEmail());
         assertEquals(expectedData.getLogin(),actualData.getLogin());
-
-
-
-
-
     }
 }
