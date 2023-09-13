@@ -19,5 +19,4 @@ public class US_002_TC_002_UI {
     public void verify_username_is_invalid() {
         Assert.assertTrue(registerPage.invalidUsernameField.getText().contains("Your username is invalid."));
     }
-
 }
